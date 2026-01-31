@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Hub | Make Money & Be Productive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #050508; color: white; min-height: 100vh; }
+    .grid-bg { background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+    .orb { position: fixed; border-radius: 50%; filter: blur(150px); opacity: 0.4; animation: pulse 8s infinite; pointer-events: none; }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.5; } }
+    .glass { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); backdrop-filter: blur(40px); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; }
+    .glass:hover { transform: translateY(-4px); border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); }
+    .gradient-text { background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-glow { background: linear-gradient(135deg, #8b5cf6, #ec4899); transition: all 0.3s; }
+    .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4); }
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+    .card-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  </style>
+</head>
+<body class="grid-bg">
+  <div class="orb" style="width: 500px; height: 500px; background: #10b981; top: -200px; left: -200px;"></div>
+  <div class="orb" style="width: 400px; height: 400px; background: #8b5cf6; bottom: -150px; right: -150px;"></div>
+
+  <div class="relative z-10 min-h-screen p-6">
+    
+    <!-- Header -->
+    <div class="flex items-center gap-4 mb-8">
+      <a href="index.html" class="text-2xl">←</a>
+      <h1 class="text-xl font-bold">Automation Hub</h1>
+    </div>
+    
+    <!-- Hero -->
+    <div class="text-center py-8 mb-8">
+      <div class="text-6xl mb-4">🤖💰</div>
+      <h1 class="text-3xl font-black gradient-text mb-2">AI Automation</h1>
+      <p class="text-white/60">Make Money • Save Time • Code Faster</p>
+    </div>
+    
+    <!-- Money Making Section -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2">💰 Make More Money</h2>
+      
+      <div class="space-y-4 max-w-2xl mx-auto">
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-green-500 to-emerald-600">🚗</div>
+            <div>
+              <h3 class="font-bold text-lg">DoorDash Optimizer</h3>
+              <p class="text-white/50 text-sm mt-1">Track earnings, find peak hours, optimize routes. AI analyzes your best-performing areas and times.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-green-500/20 text-green-400">+20% earnings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-purple-500 to-pink-600">🌐</div>
+            <div>
+              <h3 class="font-bold text-lg">Auto Website Builder</h3>
+              <p class="text-white/50 text-sm mt-1">Voice message an idea while driving → AI builds & deploys a stunning website → Sell to clients.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-purple-500/20 text-purple-400">$500-2K/site</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-cyan-500 to-blue-600">📱</div>
+            <div>
+              <h3 class="font-bold text-lg">SaaS Micro-Apps</h3>
+              <p class="text-white/50 text-sm mt-1">Build small, useful apps with AI. Deploy free on Vercel/Netlify. Monetize with ads or subscriptions.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-cyan-500/20 text-cyan-400">Passive income</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-orange-500 to-red-600">📝</div>
+            <div>
+              <h3 class="font-bold text-lg">Content Automation</h3>
+              <p class="text-white/50 text-sm mt-1">Auto-generate blog posts, social content, newsletters. Monetize with affiliate links.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-orange-500/20 text-orange-400">Scale content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Coding Productivity -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2">⚡ Code 10x Faster</h2>
+      
+      <div class="space-y-4 max-w-2xl mx-auto">
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-violet-500 to-purple-600">🐾</div>
+            <div>
+              <h3 class="font-bold text-lg">Clawdbot + Voice</h3>
+              <p class="text-white/50 text-sm mt-1">Voice message coding tasks while driving. AI writes code, commits to GitHub, deploys automatically.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-violet-500/20 text-violet-400">Hands-free coding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-pink-500 to-rose-600">📋</div>
+            <div>
+              <h3 class="font-bold text-lg">Project Templates</h3>
+              <p class="text-white/50 text-sm mt-1">Pre-built templates with your design system. Say "create app for X" → Instant project scaffold.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-pink-500/20 text-pink-400">5 min to deploy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-teal-500 to-cyan-600">🔄</div>
+            <div>
+              <h3 class="font-bold text-lg">Auto CI/CD Pipeline</h3>
+              <p class="text-white/50 text-sm mt-1">Push to GitHub → Auto test → Auto deploy to production. Zero manual deployment.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-teal-500/20 text-teal-400">Set & forget</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-amber-500 to-orange-600">🧪</div>
+            <div>
+              <h3 class="font-bold text-lg">AI Code Review</h3>
+              <p class="text-white/50 text-sm mt-1">Automatic PR reviews, bug detection, security scanning. Ship better code faster.</p>
+              <div class="flex gap-2 mt-3">
+                <span class="tag bg-amber-500/20 text-amber-400">Quality guard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Time Savers -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2">⏰ Save Hours Daily</h2>
+      
+      <div class="space-y-4 max-w-2xl mx-auto">
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-blue-500 to-indigo-600">📧</div>
+            <div>
+              <h3 class="font-bold text-lg">Email Auto-Responder</h3>
+              <p class="text-white/50 text-sm mt-1">AI reads emails, drafts responses, you approve. Handle 10x more email in same time.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-rose-500 to-pink-600">📅</div>
+            <div>
+              <h3 class="font-bold text-lg">Calendar Intelligence</h3>
+              <p class="text-white/50 text-sm mt-1">AI schedules meetings, blocks focus time, reminds of deadlines. Never miss anything.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-6 transition-all cursor-pointer">
+          <div class="flex gap-4">
+            <div class="card-icon bg-gradient-to-br from-emerald-500 to-green-600">📊</div>
+            <div>
+              <h3 class="font-bold text-lg">Auto Reports</h3>
+              <p class="text-white/50 text-sm mt-1">Daily/weekly summaries generated automatically. Track progress without manual logging.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2">🚀 Your Automation Stack</h2>
+      
+      <div class="glass p-6 max-w-2xl mx-auto">
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
+            <span class="text-2xl">✅</span>
+            <div class="flex-1">
+              <div class="font-semibold">Clawdbot</div>
+              <div class="text-white/40 text-sm">AI gateway - connects everything</div>
+            </div>
+            <span class="text-green-400 text-sm">Active</span>
+          </div>
+          
+          <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
+            <span class="text-2xl">✅</span>
+            <div class="flex-1">
+              <div class="font-semibold">Voice Commands</div>
+              <div class="text-white/40 text-sm">Code while driving</div>
+            </div>
+            <span class="text-green-400 text-sm">Active</span>
+          </div>
+          
+          <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
+            <span class="text-2xl">✅</span>
+            <div class="flex-1">
+              <div class="font-semibold">GitHub Auto-Deploy</div>
+              <div class="text-white/40 text-sm">Push → Live in seconds</div>
+            </div>
+            <span class="text-green-400 text-sm">Active</span>
+          </div>
+          
+          <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
+            <span class="text-2xl">✅</span>
+            <div class="flex-1">
+              <div class="font-semibold">Apple Notes Sync</div>
+              <div class="text-white/40 text-sm">Everything logged automatically</div>
+            </div>
+            <span class="text-green-400 text-sm">Active</span>
+          </div>
+          
+          <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
+            <span class="text-2xl">⏳</span>
+            <div class="flex-1">
+              <div class="font-semibold">DoorDash Tracker</div>
+              <div class="text-white/40 text-sm">Earnings optimization</div>
+            </div>
+            <span class="text-yellow-400 text-sm">Coming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center py-8">
+      <p class="text-white/50 mb-6">Start automating. Make more money. Work smarter.</p>
+      <a href="index.html" class="btn-glow inline-block px-8 py-4 rounded-2xl font-bold">
+        ← Back to Tools
+      </a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="text-center py-8">
+      <p class="text-white/30 text-sm">Built by Rathish • Jan 2026</p>
+    </div>
+    
+  </div>
+</body>
+</html>
