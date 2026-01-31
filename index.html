@@ -362,6 +362,26 @@
           </div>
         </div>
         
+        <!-- Skills & MCP -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('skills')">
+          <div class="flex gap-4">
+            <div class="tool-icon flex-shrink-0" style="background: linear-gradient(135deg, #f97316, #8b5cf6);">🔌</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">Skills & MCP Guide</h3>
+                <span class="tag bg-orange-500/20 text-orange-400">Essential</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">Master MCP, Claude Code Skills, and AI automation. Complete tutorials & setup guides.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">MCP</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Skills</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Automation</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
       </div>
     </div>
     
@@ -1089,6 +1109,455 @@
         <p class="text-white/70 leading-relaxed">
           OpenAI Codex CLI is a lightweight coding agent that runs in your terminal. It features a sandboxed execution environment for safe code execution.
         </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS & MCP PAGE -->
+  <div class="page grid-bg" id="page-skills">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">Skills & MCP Complete Guide</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <!-- Hero -->
+      <div class="text-center py-8">
+        <div class="tool-icon mx-auto mb-6 w-24 h-24 text-5xl" style="background: linear-gradient(135deg, #f97316, #8b5cf6);">🔌</div>
+        <h1 class="text-3xl font-bold gradient-text mb-2">Skills & MCP</h1>
+        <p class="text-white/50">The Ultimate Guide to AI Superpowers</p>
+        <div class="flex justify-center gap-2 mt-4 flex-wrap">
+          <span class="tag bg-orange-500/20 text-orange-400">MCP</span>
+          <span class="tag bg-purple-500/20 text-purple-400">Claude Code Skills</span>
+          <span class="tag bg-cyan-500/20 text-cyan-400">Automation</span>
+        </div>
+      </div>
+
+      <!-- What Are Skills & MCP -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-3 gradient-text">🤔 What Are Skills & MCP?</h3>
+        <p class="text-white/70 leading-relaxed mb-4">
+          <strong>Skills</strong> and <strong>MCP (Model Context Protocol)</strong> are what turn a basic AI chatbot into a <strong>powerful automation agent</strong>. They let AI actually DO things instead of just talking about them.
+        </p>
+        <div class="bg-white/5 p-4 rounded-xl mb-4">
+          <p class="text-white/60 text-sm">
+            <strong class="text-purple-400">Think of it this way:</strong> Without Skills/MCP, AI is like a smart person locked in a room with no phone or computer. WITH Skills/MCP, that same person suddenly has access to your files, email, databases, APIs, browser, and more!
+          </p>
+        </div>
+      </div>
+
+      <!-- MCP Explained -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6 bg-gradient-to-br from-orange-500/10 to-purple-500/10">
+        <h3 class="font-bold text-lg mb-4">🔌 MCP - Model Context Protocol</h3>
+        <p class="text-white/50 text-sm mb-4">Created by Anthropic • The "USB-C for AI"</p>
+        
+        <div class="space-y-4">
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-orange-300 mb-2">What is MCP?</p>
+            <p class="text-white/60 text-sm">MCP is a <strong>universal standard</strong> for connecting AI models to external tools, data sources, and APIs. Instead of every AI having different integration methods, MCP provides ONE protocol that works everywhere.</p>
+          </div>
+          
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-orange-300 mb-2">How Does It Work?</p>
+            <div class="text-white/60 text-sm space-y-2">
+              <p>🖥️ <strong>MCP Host</strong> - The AI application (Claude Desktop, Cursor, etc.)</p>
+              <p>🔗 <strong>MCP Client</strong> - Manages connections to servers</p>
+              <p>⚙️ <strong>MCP Server</strong> - Provides specific capabilities (GitHub, Notion, files, etc.)</p>
+            </div>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-orange-300 mb-2">What Can MCP Do?</p>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div class="text-white/60">📁 Read/write local files</div>
+              <div class="text-white/60">🗄️ Query databases</div>
+              <div class="text-white/60">🌐 Browse the web</div>
+              <div class="text-white/60">📧 Send emails</div>
+              <div class="text-white/60">💬 Control Slack/Discord</div>
+              <div class="text-white/60">📝 Manage Notion pages</div>
+              <div class="text-white/60">🐙 GitHub operations</div>
+              <div class="text-white/60">🎨 Control Figma/Blender</div>
+              <div class="text-white/60">🐳 Manage Docker</div>
+              <div class="text-white/60">📊 Query APIs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top MCP Servers -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4">🏆 Top 10 MCP Servers You Need</h3>
+        <p class="text-white/50 text-sm mb-4">From NetworkChuck's 1.1M view video & community favorites</p>
+        
+        <div class="space-y-3">
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">📁</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Filesystem MCP</p>
+              <p class="text-white/40 text-xs">Read, write, organize files & folders</p>
+            </div>
+            <span class="tag bg-green-500/20 text-green-400 text-xs">Essential</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">🐙</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">GitHub MCP</p>
+              <p class="text-white/40 text-xs">Repos, issues, PRs, actions</p>
+            </div>
+            <span class="tag bg-purple-500/20 text-purple-400 text-xs">Developer</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">🔍</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Brave Search MCP</p>
+              <p class="text-white/40 text-xs">Web search without leaving chat</p>
+            </div>
+            <span class="tag bg-orange-500/20 text-orange-400 text-xs">Research</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">📝</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Notion MCP</p>
+              <p class="text-white/40 text-xs">Pages, databases, blocks</p>
+            </div>
+            <span class="tag bg-white/20 text-white/70 text-xs">Productivity</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">💬</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Slack MCP</p>
+              <p class="text-white/40 text-xs">Send messages, manage channels</p>
+            </div>
+            <span class="tag bg-pink-500/20 text-pink-400 text-xs">Communication</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">🗄️</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">PostgreSQL/SQLite MCP</p>
+              <p class="text-white/40 text-xs">Query and modify databases</p>
+            </div>
+            <span class="tag bg-cyan-500/20 text-cyan-400 text-xs">Data</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">🌐</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Puppeteer/Playwright MCP</p>
+              <p class="text-white/40 text-xs">Browser automation & scraping</p>
+            </div>
+            <span class="tag bg-red-500/20 text-red-400 text-xs">Automation</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">🐳</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Docker MCP</p>
+              <p class="text-white/40 text-xs">Containers, images, compose</p>
+            </div>
+            <span class="tag bg-blue-500/20 text-blue-400 text-xs">DevOps</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">☁️</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">AWS MCP</p>
+              <p class="text-white/40 text-xs">S3, Lambda, EC2, and more</p>
+            </div>
+            <span class="tag bg-yellow-500/20 text-yellow-400 text-xs">Cloud</span>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl flex items-center gap-3">
+            <span class="text-2xl">📧</span>
+            <div class="flex-1">
+              <p class="font-medium text-sm">Email MCP</p>
+              <p class="text-white/40 text-xs">Gmail, Outlook integration</p>
+            </div>
+            <span class="tag bg-green-500/20 text-green-400 text-xs">Essential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude Code Skills -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6 bg-gradient-to-br from-purple-500/10 to-pink-500/10">
+        <h3 class="font-bold text-lg mb-4">⚡ Claude Code Skills</h3>
+        <p class="text-white/50 text-sm mb-4">Reusable prompts & workflows for Claude Code CLI</p>
+        
+        <div class="space-y-4">
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-purple-300 mb-2">What Are Claude Code Skills?</p>
+            <p class="text-white/60 text-sm">Skills are <strong>pre-written prompt templates</strong> that Claude Code can use for specific tasks. Instead of writing the same complex prompts over and over, you save them as Skills and reuse them!</p>
+          </div>
+          
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-purple-300 mb-2">How Skills Work</p>
+            <p class="text-white/60 text-sm mb-2">Skills are stored as <code class="bg-black/30 px-1 rounded">SKILL.md</code> files in your project or global config:</p>
+            <code class="text-xs bg-black/30 px-3 py-2 rounded block text-green-400">~/.claude/skills/my-skill/SKILL.md</code>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-purple-300 mb-2">Example Skill Structure</p>
+            <pre class="text-xs bg-black/30 p-3 rounded overflow-x-auto text-green-400"># SKILL.md - Code Reviewer
+
+## Description
+Review code for bugs, security issues, and best practices.
+
+## Instructions
+1. Analyze the provided code
+2. Check for security vulnerabilities
+3. Suggest performance improvements
+4. Ensure coding standards are followed
+
+## Output Format
+- 🐛 Bugs found
+- 🔒 Security issues  
+- ⚡ Performance tips
+- ✨ Best practice suggestions</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Official Claude Skills -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4">📦 60+ Official Claude Skills</h3>
+        <p class="text-white/50 text-sm mb-4">Anthropic provides official skills you can install</p>
+        
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-cyan-300">🐙 GitHub Skill</p>
+            <p class="text-white/40 text-xs">PRs, issues, repo management</p>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-pink-300">🎨 Figma Skill</p>
+            <p class="text-white/40 text-xs">Design file operations</p>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-green-300">📊 Data Analysis</p>
+            <p class="text-white/40 text-xs">CSV, JSON, analytics</p>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-orange-300">🧪 Testing Skill</p>
+            <p class="text-white/40 text-xs">Unit tests, integration tests</p>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-purple-300">📝 Documentation</p>
+            <p class="text-white/40 text-xs">README, API docs, comments</p>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-yellow-300">🔄 Refactoring</p>
+            <p class="text-white/40 text-xs">Code cleanup, optimization</p>
+          </div>
+        </div>
+        
+        <div class="bg-white/5 p-3 rounded-xl">
+          <p class="font-medium text-sm mb-2">Install Official Skills:</p>
+          <code class="text-xs bg-black/30 px-3 py-2 rounded block text-green-400">claude skills install @anthropic/github</code>
+        </div>
+      </div>
+
+      <!-- MCP Setup Guide -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6 bg-gradient-to-br from-green-500/10 to-cyan-500/10">
+        <h3 class="font-bold text-lg mb-4">⚡ Quick MCP Setup Guide</h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+            <div>
+              <p class="font-medium">Install Claude Desktop</p>
+              <p class="text-white/50 text-xs mt-1">Download from claude.ai/desktop</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+            <div>
+              <p class="font-medium">Find Config File</p>
+              <code class="text-xs bg-black/30 px-2 py-1 rounded mt-1 block text-green-400">~/Library/Application Support/Claude/claude_desktop_config.json</code>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+            <div>
+              <p class="font-medium">Add MCP Server</p>
+              <pre class="text-xs bg-black/30 p-2 rounded mt-1 overflow-x-auto text-green-400">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-filesystem", "/path/to/folder"]
+    }
+  }
+}</pre>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center font-bold text-sm shrink-0">4</div>
+            <div>
+              <p class="font-medium">Restart Claude Desktop</p>
+              <p class="text-white/50 text-xs mt-1">MCP servers appear in the 🔌 menu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube Tutorials -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4">📺 Best MCP & Skills YouTube Tutorials</h3>
+        
+        <div class="space-y-3">
+          <a href="https://youtube.com/watch?v=GuTcle5edjk" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="font-medium">🔥 "you need to learn MCP RIGHT NOW!!"</p>
+                <p class="text-white/40 text-xs mt-1">NetworkChuck • 1.1M views • 38 min</p>
+              </div>
+              <span class="tag bg-red-500/20 text-red-400 text-xs">Must Watch</span>
+            </div>
+            <p class="text-white/60 text-xs mt-2">Complete MCP guide: Docker MCP Catalog, Claude Desktop, LM Studio, Cursor, building custom servers, Kali Linux hacking MCP</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=lzbbPBLPtdY" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">📋 "Top 10 MCP Use Cases"</p>
+              <p class="text-white/40 text-xs mt-1">Codex Community • 114K views • 7 min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">Practical examples: emails, file organization, web browsing, WhatsApp, Blender, Figma, Docker, GitHub, Spotify</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=CQywdSdi5iA" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">🏢 "The Model Context Protocol" (Official Anthropic)</p>
+              <p class="text-white/40 text-xs mt-1">Anthropic • 224K views • 19 min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">From the creators - deep dive into MCP architecture, open sourcing decisions, Claude 4 improvements</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=kOhLoixrJXo" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">📚 "MCP In 26 Minutes"</p>
+              <p class="text-white/40 text-xs mt-1">Tina Huang • 151K views • 26 min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">Fundamentals, quizzes, building MCP servers (no-code and code), practical exercises</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=ZoZxQwp1PiM" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">🎓 "Ultimate MCP Crash Course - Build From Scratch"</p>
+              <p class="text-white/40 text-xs mt-1">Web Dev Simplified • 231K views • 1hr 15min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">Server setup, tools, resources, templates, prompts, sampling, client setup, full integration</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=0J2_YGuNrDo" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">👥 "Claude Code Built me an AI Agent Team"</p>
+              <p class="text-white/40 text-xs mt-1">Grace Leung • 125K views • 17 min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">4 ways to use Claude Code: context templates, official Skills, MCP, custom Skills, agent orchestration</p>
+          </a>
+          
+          <a href="https://youtube.com/watch?v=g8TwasIoC3Q" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-orange-500/10 transition">
+            <div>
+              <p class="font-medium">⚡ "Stop Building n8n AI Agent (Claude MCP Does It INSTANTLY)"</p>
+              <p class="text-white/40 text-xs mt-1">Michele Torti • 148K views • 16 min</p>
+            </div>
+            <p class="text-white/60 text-xs mt-2">n8n MCP server setup, workflow automation without code, Claude Desktop integration</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Agentic Workflows -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6 bg-gradient-to-br from-pink-500/10 to-purple-500/10">
+        <h3 class="font-bold text-lg mb-4">🤖 Agentic Workflows (Game Changer!)</h3>
+        <p class="text-white/50 text-sm mb-4">From Nate Herk's viral video - 99K views</p>
+        
+        <div class="space-y-4">
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-pink-300 mb-2">Old Way vs Agentic Way</p>
+            <div class="grid md:grid-cols-2 gap-3">
+              <div class="bg-red-500/10 p-3 rounded-lg">
+                <p class="text-red-300 text-xs font-semibold mb-1">❌ OLD: Step-by-Step</p>
+                <p class="text-white/50 text-xs">"First open this, then click here, then type this, then..."</p>
+              </div>
+              <div class="bg-green-500/10 p-3 rounded-lg">
+                <p class="text-green-300 text-xs font-semibold mb-1">✅ NEW: Outcome-Based</p>
+                <p class="text-white/50 text-xs">"Get me all leads from LinkedIn who match X criteria"</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-semibold text-pink-300 mb-2">Key Benefits</p>
+            <div class="space-y-2 text-sm">
+              <p class="text-white/60">🔄 <strong>Self-Healing</strong> - Workflows adapt when things break</p>
+              <p class="text-white/60">💬 <strong>Natural Language</strong> - Just describe what you want</p>
+              <p class="text-white/60">🔌 <strong>API Agnostic</strong> - Works with any API automatically</p>
+              <p class="text-white/60">🚀 <strong>10x Faster</strong> - No manual workflow building</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro Tips -->
+      <div class="glass glass-card p-6 max-w-2xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4">💡 Pro Tips from the Community</h3>
+        
+        <div class="space-y-3">
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-purple-300">🔧 Start with Filesystem MCP</p>
+            <p class="text-white/50 text-xs mt-1">It's the most universally useful - let AI read/write your project files first.</p>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-cyan-300">📝 Create Project-Specific Skills</p>
+            <p class="text-white/50 text-xs mt-1">Put SKILL.md files in each project folder for context-aware assistance.</p>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-pink-300">🔗 Chain MCPs Together</p>
+            <p class="text-white/50 text-xs mt-1">GitHub + Slack + Email = automated PR review notifications</p>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-green-300">🐳 Use Docker MCP Catalog</p>
+            <p class="text-white/50 text-xs mt-1">One-click install for 100+ MCP servers without manual setup.</p>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-orange-300">🔐 Security First</p>
+            <p class="text-white/50 text-xs mt-1">Only give MCP access to folders/APIs you actually need. Review permissions!</p>
+          </div>
+          
+          <div class="bg-white/5 p-3 rounded-xl">
+            <p class="font-medium text-sm text-yellow-300">📊 D.R.Y. Principle</p>
+            <p class="text-white/50 text-xs mt-1">Don't Repeat Yourself - save common prompts as Skills for reuse.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="max-w-2xl mx-auto space-y-3">
+        <h3 class="font-bold text-lg mb-4">🔗 Essential Resources</h3>
+        <a href="https://modelcontextprotocol.io" target="_blank" class="social-btn w-full justify-center">
+          <span>📚</span> Official MCP Documentation
+        </a>
+        <a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="social-btn w-full justify-center">
+          <span>⚫</span> MCP Servers Repository
+        </a>
+        <a href="https://glama.ai/mcp/servers" target="_blank" class="social-btn w-full justify-center">
+          <span>🔌</span> MCP Server Directory (Glama)
+        </a>
+        <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" class="social-btn w-full justify-center">
+          <span>⚡</span> Claude Code Documentation
+        </a>
+        <a href="https://clawdhub.com" target="_blank" class="social-btn w-full justify-center">
+          <span>🐾</span> Clawdbot Skills Hub
+        </a>
       </div>
     </div>
   </div>
