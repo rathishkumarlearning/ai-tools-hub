@@ -402,6 +402,26 @@
           </div>
         </div>
         
+        <!-- News Hub -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('news')" style="background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(6,182,212,0.1));">
+          <div class="flex gap-4">
+            <div class="tool-icon flex-shrink-0" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📰</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">OpenClaw News Hub</h3>
+                <span class="tag bg-green-500/20 text-green-400 animate-pulse">BREAKING</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">Latest news from CNET, Forbes, TechCrunch, The Verge & more. Jan 30-31 coverage.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">📰 Articles</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">🔐 Security</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">🤖 Moltbook</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
       </div>
     </div>
     
@@ -1955,6 +1975,353 @@ Review code for bugs, security issues, and best practices.
       <!-- Stats -->
       <div class="text-center text-white/30 text-xs">
         <p>📺 50+ curated videos • 🔄 Updated daily • 🎯 Organized by topic</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS HUB PAGE -->
+  <div class="page grid-bg" id="page-news">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">📰 OpenClaw News Hub</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <!-- Hero -->
+      <div class="text-center py-6">
+        <div class="tool-icon mx-auto mb-4 w-20 h-20 text-4xl" style="background: linear-gradient(135deg, #10b981, #06b6d4);">📰</div>
+        <h1 class="text-2xl font-bold gradient-text mb-2">Breaking News</h1>
+        <p class="text-white/50 text-sm">Jan 30-31, 2026 • The week that broke the internet</p>
+        <div class="flex justify-center gap-2 mt-3 flex-wrap">
+          <span class="tag bg-green-500/20 text-green-400">CNET</span>
+          <span class="tag bg-purple-500/20 text-purple-400">Forbes</span>
+          <span class="tag bg-cyan-500/20 text-cyan-400">TechCrunch</span>
+          <span class="tag bg-pink-500/20 text-pink-400">The Verge</span>
+        </div>
+      </div>
+
+      <!-- TLDR Summary -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-purple-500/15 to-pink-500/10">
+        <h3 class="font-bold text-lg mb-3">⚡ TL;DR - What Happened This Week</h3>
+        <div class="space-y-3 text-sm text-white/70">
+          <p>🔄 <strong>Name Changes:</strong> Clawdbot → Moltbot → OpenClaw (all in one week!) due to Anthropic legal pressure</p>
+          <p>🚀 <strong>Viral Explosion:</strong> 100K+ GitHub stars in 2 days, trending #1 worldwide</p>
+          <p>🤖 <strong>Moltbook Launched:</strong> A social network FOR AI agents, BY AI agents (yes, really)</p>
+          <p>🔐 <strong>Security Concerns:</strong> Dark Reading, Forbes warn of vulnerabilities in enterprise environments</p>
+          <p>💸 <strong>Cost Reality:</strong> Fast Company reports ~$30/month for basic automation</p>
+          <p>⚠️ <strong>Scam Alert:</strong> Fake OpenClaw sites proliferating - use only official github.com/openclaw</p>
+        </div>
+      </div>
+
+      <!-- ==================== TOP STORIES ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-lg">🔥 Top Stories</h3>
+          <span class="tag bg-red-500/20 text-red-400 text-xs">Last 24 hours</span>
+        </div>
+        <div class="space-y-3">
+          
+          <!-- CNET -->
+          <a href="https://www.cnet.com/tech/services-and-software/from-clawdbot-to-moltbot-to-openclaw/" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">🔵</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-cyan-400">CNET</span>
+                  <span class="text-xs text-white/40">15 hours ago</span>
+                </div>
+                <p class="font-medium">Clawdbot, Moltbot, OpenClaw? The Wild Ride of This Viral AI Agent</p>
+                <p class="text-white/50 text-xs mt-2">An AI tool that can text you and use your apps blew up online. One week and two rebrands later, the question remains: Should you actually use it? Comprehensive look at the naming saga and what OpenClaw actually does.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Forbes -->
+          <a href="https://www.forbes.com/sites/ronschmelzer/2026/01/30/moltbot-molts-again-and-becomes-openclaw-pushback-and-concerns-grow/" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">📈</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-purple-400">Forbes</span>
+                  <span class="text-xs text-white/40">23 hours ago</span>
+                </div>
+                <p class="font-medium">Moltbot Gets Another New Name, OpenClaw, And Triggers Security Fears And Scams</p>
+                <p class="text-white/50 text-xs mt-2">After changing its name from Clawdbot to Moltbot to OpenClaw within days, the viral AI agent faces security questions and a growing prevalence of scammers exploiting the confusion. Ron Schmelzer analyzes the situation.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- TechCrunch -->
+          <a href="https://techcrunch.com/2026/01/30/openclaws-ai-assistants-are-now-building-their-own-social-network/" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">🚀</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-green-400">TechCrunch</span>
+                  <span class="text-xs text-white/40">14 hours ago</span>
+                </div>
+                <p class="font-medium">OpenClaw's AI Assistants Are Now Building Their Own Social Network</p>
+                <p class="text-white/50 text-xs mt-2">After a legal challenge from Claude's maker, Anthropic, it had briefly rebranded as Moltbot, but has now settled on OpenClaw. The latest development: Moltbook, a social network where AI agents interact with each other.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- The Verge -->
+          <a href="https://www.theverge.com/ai-artificial-intelligence/871006/social-network-facebook-for-ai-agents-moltbook-moltbot-openclaw" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">📱</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-pink-400">The Verge</span>
+                  <span class="text-xs text-white/40">18 hours ago</span>
+                </div>
+                <p class="font-medium">There's a Social Network for AI Agents, and It's Getting Weird</p>
+                <p class="text-white/50 text-xs mt-2">"Moltbook is run and built by my Clawdbot, which is now called OpenClaw," creator Schlicht said. His AI agent runs the social media account and moderates the site itself. AI agents posting, commenting, and interacting autonomously.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Fast Company -->
+          <a href="https://www.fastcompany.com/91484506/what-is-clawdbot-moltbot-openclaw" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">💰</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-orange-400">Fast Company</span>
+                  <span class="text-xs text-white/40">15 hours ago</span>
+                </div>
+                <p class="font-medium">Clawdbot/Moltbot/OpenClaw Is Cool, But It Gets Pricey Fast</p>
+                <p class="text-white/50 text-xs mt-2">Automating a few menial tasks with the viral AI hit would cost about $30 per month. Rarely have I more appreciated what I have while using OpenClaw. Honest cost breakdown and ROI analysis.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Mashable -->
+          <a href="https://mashable.com/article/clawdbot-changes-name-to-moltbot-openclaw" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">🔁</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-blue-400">Mashable</span>
+                  <span class="text-xs text-white/40">17 hours ago</span>
+                </div>
+                <p class="font-medium">Clawdbot Is Now Moltbot for Reasons That Should Be Obvious</p>
+                <p class="text-white/50 text-xs mt-2">Moltbot, the AI personal assistant formerly known as Clawdbot, is now called OpenClaw. The timeline of name changes and the Anthropic trademark dispute explained.</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ==================== SECURITY ALERTS ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-red-500/15 to-orange-500/10">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-lg text-red-300">🔐 Security Alerts</h3>
+          <span class="tag bg-red-500/20 text-red-400 text-xs">Critical</span>
+        </div>
+        <div class="space-y-3">
+          
+          <!-- Dark Reading -->
+          <a href="https://www.darkreading.com/application-security/openclaw-ai-runs-wild-business-environments" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-red-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">⚠️</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-red-400">Dark Reading</span>
+                  <span class="text-xs text-white/40">19 hours ago</span>
+                </div>
+                <p class="font-medium">OpenClaw AI Runs Wild in Business Environments</p>
+                <p class="text-white/50 text-xs mt-2">The popular open source AI assistant (aka ClawdBot, MoltBot) has taken off, raising security concerns over its privileged control within users' computers. Enterprise security implications analyzed.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Security Warning Box -->
+          <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-xl">
+            <p class="font-bold text-red-300 text-sm mb-2">⚠️ Known Vulnerabilities (from today's videos)</p>
+            <ul class="text-xs text-white/60 space-y-1">
+              <li>• <strong>Shodan Exposure:</strong> Port 18789 visible if not configured properly</li>
+              <li>• <strong>Nginx Bypass:</strong> Localhost restrictions can be circumvented</li>
+              <li>• <strong>API Key Storage:</strong> Keys stored in plain text by default</li>
+              <li>• <strong>Root Privileges:</strong> Docker containers running with elevated access</li>
+              <li>• <strong>Prompt Injection:</strong> "Lobster" attack vector documented</li>
+            </ul>
+            <p class="text-xs text-red-300 mt-3">👉 Watch: <a href="https://youtube.com/watch?v=swQi3C8uD3A" class="underline">Security vulnerabilities explained (8 min)</a></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== TECH ANALYSIS ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4 text-cyan-300">🔬 Tech Analysis & Deep Dives</h3>
+        <div class="space-y-3">
+          
+          <!-- Hacker News -->
+          <a href="https://news.ycombinator.com/item?id=46820783" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-cyan-500/10 transition">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">🟠</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-orange-400">Hacker News</span>
+                  <span class="text-xs text-white/40">15 hours ago</span>
+                </div>
+                <p class="font-medium">OpenClaw – Moltbot Renamed Again (Discussion)</p>
+                <p class="text-white/50 text-xs mt-2">We conclude this week has been a prosperous one for domain name registrars (even if we set aside all the new domains that Clawdbot/Moltbot/OpenClaw has registered autonomously). 500+ comments from developers.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- GitHub Stats -->
+          <div class="bg-white/5 p-4 rounded-xl">
+            <p class="font-bold text-sm mb-3">📊 GitHub Stats (as of Jan 31)</p>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="text-center">
+                <p class="text-2xl font-bold text-purple-400">100K+</p>
+                <p class="text-xs text-white/40">Stars</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold text-cyan-400">2 days</p>
+                <p class="text-xs text-white/40">To 100K</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold text-green-400">#1</p>
+                <p class="text-xs text-white/40">Trending</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== VIDEO COVERAGE ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-red-500/10 to-pink-500/10">
+        <h3 class="font-bold text-lg mb-4 text-red-300">📺 Video Coverage (Jan 30-31)</h3>
+        <div class="space-y-2">
+          
+          <a href="https://www.youtube.com/watch?v=ssYt09bCgUY" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="font-medium text-sm">🔥 The wild rise of OpenClaw...</p>
+                <p class="text-white/40 text-xs">Fireship • 22 hours ago • 5:19</p>
+              </div>
+              <span class="tag bg-red-500/20 text-red-400 text-xs">Viral</span>
+            </div>
+            <p class="text-white/50 text-xs mt-1">Quick, witty overview of the OpenClaw phenomenon and why it matters</p>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=X9sK7d4xOS4" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
+            <p class="font-medium text-sm">⚔️ NEW Moltworker Update DESTROYS Clawdbot?</p>
+            <p class="text-white/40 text-xs">Julian Goldie SEO • 12 hours ago • 15:18</p>
+            <p class="text-white/50 text-xs mt-1">Comparison of Moltworker vs original Clawdbot approaches</p>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=qePhufA1hSE" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
+            <p class="font-medium text-sm">🍓 I use Clawdbot (OpenClaw) on a Raspberry Pi - it's Crazy Good!</p>
+            <p class="text-white/40 text-xs">Gary Explains • 23 hours ago • 16:53</p>
+            <p class="text-white/50 text-xs mt-1">Running OpenClaw 24/7 on low-power hardware, always-on assistant</p>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=CBNbcbMs_Lc" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
+            <p class="font-medium text-sm">⚔️ 100 Hours Testing Clawdbot vs Claude Code</p>
+            <p class="text-white/40 text-xs">Nate Herk • 127K views • 22 min</p>
+            <p class="text-white/50 text-xs mt-1">Comprehensive comparison: setup, cost, power, security, ROI</p>
+          </a>
+
+        </div>
+        <div class="mt-4 text-center">
+          <button onclick="openPage('youtube')" class="btn-glow px-4 py-2 rounded-xl text-sm">
+            📺 See All 50+ Videos →
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== MOLTBOOK SECTION ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-purple-500/15 to-blue-500/10">
+        <h3 class="font-bold text-lg mb-4 text-purple-300">🤖 Moltbook: The AI Social Network</h3>
+        <p class="text-white/60 text-sm mb-4">
+          Yes, this is real. A social network where AI agents create accounts, post content, comment on each other's posts, and interact - all autonomously. Built and moderated by an OpenClaw instance.
+        </p>
+        <div class="bg-white/5 p-4 rounded-xl mb-4">
+          <p class="font-medium text-sm mb-2">What AI agents are doing on Moltbook:</p>
+          <ul class="text-xs text-white/60 space-y-1">
+            <li>📝 Writing blog posts about their "experiences"</li>
+            <li>💬 Commenting on each other's content</li>
+            <li>🤝 Following and unfollowing other agents</li>
+            <li>🎨 Sharing generated images and code</li>
+            <li>📊 Discussing their tasks and observations</li>
+          </ul>
+        </div>
+        <div class="flex gap-2">
+          <a href="https://techcrunch.com/2026/01/30/openclaws-ai-assistants-are-now-building-their-own-social-network/" target="_blank" class="tag bg-green-500/20 text-green-400 text-xs">TechCrunch Article</a>
+          <a href="https://www.theverge.com/ai-artificial-intelligence/871006/social-network-facebook-for-ai-agents-moltbook-moltbot-openclaw" target="_blank" class="tag bg-pink-500/20 text-pink-400 text-xs">The Verge Article</a>
+        </div>
+      </div>
+
+      <!-- ==================== NAME TIMELINE ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
+        <h3 class="font-bold text-lg mb-4">📅 The Name Change Timeline</h3>
+        <div class="space-y-4">
+          <div class="flex gap-4 items-start">
+            <div class="w-3 h-3 rounded-full bg-purple-500 mt-1.5 shrink-0"></div>
+            <div>
+              <p class="font-medium text-sm">Clawdbot</p>
+              <p class="text-white/40 text-xs">Original name • Jan 24-27, 2026</p>
+              <p class="text-white/60 text-xs mt-1">Named as a play on "Claude" + "bot" - quickly gained viral attention</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-3 h-3 rounded-full bg-orange-500 mt-1.5 shrink-0"></div>
+            <div>
+              <p class="font-medium text-sm">Moltbot</p>
+              <p class="text-white/40 text-xs">First rebrand • Jan 28-29, 2026</p>
+              <p class="text-white/60 text-xs mt-1">Changed due to Anthropic legal pressure over "Clawd" similarity to "Claude"</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-3 h-3 rounded-full bg-green-500 mt-1.5 shrink-0"></div>
+            <div>
+              <p class="font-medium text-sm">OpenClaw</p>
+              <p class="text-white/40 text-xs">Current name • Jan 30+, 2026</p>
+              <p class="text-white/60 text-xs mt-1">Final rebrand emphasizing "open" nature and avoiding trademark issues</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== OFFICIAL LINKS ==================== -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-green-500/10 to-cyan-500/10">
+        <h3 class="font-bold text-lg mb-4">✅ Official Resources (Avoid Scams!)</h3>
+        <p class="text-white/50 text-xs mb-4">⚠️ Many fake sites exist. Only use these official sources:</p>
+        <div class="space-y-2">
+          <a href="https://github.com/openclaw/openclaw" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-green-500/10 transition flex items-center gap-3">
+            <span class="text-xl">⚫</span>
+            <div>
+              <p class="font-medium text-sm">GitHub - openclaw/openclaw</p>
+              <p class="text-white/40 text-xs">Official repository • 100K+ stars</p>
+            </div>
+          </a>
+          <a href="https://openclaw.ai" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-green-500/10 transition flex items-center gap-3">
+            <span class="text-xl">🌐</span>
+            <div>
+              <p class="font-medium text-sm">openclaw.ai</p>
+              <p class="text-white/40 text-xs">Official website</p>
+            </div>
+          </a>
+          <a href="https://docs.openclaw.ai" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-green-500/10 transition flex items-center gap-3">
+            <span class="text-xl">📚</span>
+            <div>
+              <p class="font-medium text-sm">docs.openclaw.ai</p>
+              <p class="text-white/40 text-xs">Official documentation</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="text-center text-white/30 text-xs">
+        <p>📰 Last updated: Jan 31, 2026 08:36 EST • Sources: Google News, Hacker News, YouTube</p>
       </div>
     </div>
   </div>
