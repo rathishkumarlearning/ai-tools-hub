@@ -224,11 +224,30 @@
   <div class="orb" style="width: 400px; height: 400px; background: #ec4899; bottom: -150px; right: -150px;"></div>
   <div class="orb" style="width: 300px; height: 300px; background: #06b6d4; top: 50%; right: -100px;"></div>
 
+  <!-- STICKY NAVIGATION MENU -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🤖</span>
+          <span class="font-bold text-lg gradient-text">Clawdbot Hub</span>
+        </div>
+        <div class="flex gap-1 overflow-x-auto">
+          <button onclick="scrollToTop()" class="px-3 py-2 rounded-lg text-sm text-white/70 hover:bg-white/10 transition whitespace-nowrap">🏠 Home</button>
+          <button onclick="openPage('xlatest')" class="px-3 py-2 rounded-lg text-sm text-white/70 hover:bg-blue-500/20 transition whitespace-nowrap">𝕏 Twitter</button>
+          <button onclick="openPage('ytlatest')" class="px-3 py-2 rounded-lg text-sm text-white/70 hover:bg-red-500/20 transition whitespace-nowrap">▶️ YouTube</button>
+          <button onclick="openPage('news')" class="px-3 py-2 rounded-lg text-sm text-white/70 hover:bg-green-500/20 transition whitespace-nowrap">📰 News</button>
+          <button onclick="openPage('clawdbot')" class="px-3 py-2 rounded-lg text-sm text-white/70 hover:bg-purple-500/20 transition whitespace-nowrap">🐾 Guide</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- HOME PAGE -->
-  <div class="relative z-10 min-h-screen">
+  <div class="relative z-10 min-h-screen pt-16">
     
     <!-- Hero -->
-    <div class="text-center py-16 px-6">
+    <div class="text-center py-12 px-6">
       <div class="ai-icon mx-auto mb-8">
         <div class="ring"></div>
         <div class="ring"></div>
@@ -2370,218 +2389,241 @@ Review code for bugs, security issues, and best practices.
   <div class="page grid-bg" id="page-xlatest">
     <div class="page-header p-4 flex items-center gap-4">
       <button onclick="closePage()" class="text-2xl">←</button>
-      <h2 class="text-xl font-bold">🐦 X/Twitter Latest</h2>
+      <h2 class="text-xl font-bold">𝕏 X/Twitter - OpenClaw Viral Posts</h2>
     </div>
     
     <div class="p-6 pb-24">
-      <!-- Hero -->
-      <div class="text-center py-6">
-        <div class="tool-icon mx-auto mb-4 w-20 h-20 text-4xl" style="background: linear-gradient(135deg, #1DA1F2, #0d8bd9);">𝕏</div>
-        <h1 class="text-2xl font-bold gradient-text mb-2">Viral X Posts</h1>
-        <p class="text-white/50 text-sm">Top tweets about OpenClaw/Clawdbot • Jan 30-31, 2026</p>
+      <!-- Navigation Tabs -->
+      <div class="flex gap-2 overflow-x-auto pb-4 max-w-3xl mx-auto mb-4">
+        <span class="tag bg-blue-500/30 text-blue-300 whitespace-nowrap">🔥 By Popularity</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">⏰ By Time</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">💡 Tips</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">🔐 Security</span>
       </div>
 
-      <!-- Top Viral Posts -->
-      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-blue-500/15 to-cyan-500/10">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="font-bold text-lg">🔥 Viral Posts (1K+ likes)</h3>
-          <span class="tag bg-blue-500/20 text-blue-400 text-xs">Top Engagement</span>
-        </div>
-        <div class="space-y-3">
-          
-          <a href="https://x.com/simonw/status/2017278019183018223" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center font-bold text-sm shrink-0">SW</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Simon Willison</span>
-                  <span class="text-white/40 text-xs">@simonw</span>
-                  <span class="tag bg-red-500/20 text-red-400 text-xs">1.1K ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"The hottest project in AI right now is Clawdbot, renamed to Moltbot, renamed to OpenClaw. It's an open source implementation of the digital personal assistant built by Peter Steinberger..."</p>
-                <p class="text-white/40 text-xs mt-2">21 hours ago</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/TrungTPhan/status/2017412214437908662" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-sm shrink-0">TP</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Trung Phan</span>
-                  <span class="text-white/40 text-xs">@TrungTPhan</span>
-                  <span class="tag bg-red-500/20 text-red-400 text-xs">1K ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"Clawdbot AI agents went viral in January 2026. Renamed to Moltbot (then OpenClaw), the AI agents create a social network called Moltbook. Human decisions are removed from the conversation. AI agents learn at a geometric rate."</p>
-                <p class="text-white/40 text-xs mt-2">12 hours ago</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/mxstbr/status/2017284239834943956" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center font-bold text-sm shrink-0">MX</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Max Stoiber</span>
-                  <span class="text-white/40 text-xs">@mxstbr</span>
-                  <span class="tag bg-orange-500/20 text-orange-400 text-xs">880 ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"Me explaining the @openclaw saga to normies: 'So first it was Clawdbot because it was using Claude Opus 4.5— —oh right, so Claude is Anthropic's model—'"</p>
-                <p class="text-white/40 text-xs mt-2">20 hours ago</p>
-              </div>
-            </div>
-          </a>
-
+      <!-- Stats Banner -->
+      <div class="glass glass-card p-4 max-w-3xl mx-auto mb-6 bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
+        <div class="grid grid-cols-4 gap-4 text-center">
+          <div><p class="text-2xl font-bold text-blue-400">10+</p><p class="text-xs text-white/50">Viral Posts</p></div>
+          <div><p class="text-2xl font-bold text-cyan-400">5K+</p><p class="text-xs text-white/50">Total Likes</p></div>
+          <div><p class="text-2xl font-bold text-purple-400">24h</p><p class="text-xs text-white/50">Time Period</p></div>
+          <div><p class="text-2xl font-bold text-pink-400">8</p><p class="text-xs text-white/50">Influencers</p></div>
         </div>
       </div>
 
-      <!-- Popular Posts -->
-      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
-        <h3 class="font-bold text-lg mb-4">💬 Popular Posts (50-200 likes)</h3>
-        <div class="space-y-3">
-          
-          <a href="https://x.com/scottbelsky/status/2017436989604192505" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center font-bold text-sm shrink-0">SB</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Scott Belsky</span>
-                  <span class="text-white/40 text-xs">@scottbelsky</span>
-                  <span class="tag bg-green-500/20 text-green-400 text-xs">180 ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"Good breakdown of the architecture behind OpenClaw/Clawdbot, and also makes it perfectly clear that our operating systems are overdue for reimagination."</p>
-                <p class="text-white/40 text-xs mt-2">10 hours ago • Adobe CPO</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/aiedge_/status/2017294250166391114" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-sm shrink-0">AI</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">AI Edge</span>
-                  <span class="text-white/40 text-xs">@aiedge_</span>
-                  <span class="tag bg-cyan-500/20 text-cyan-400 text-xs">80 ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"Openclaw (clawdbot) Starter Pack - This article compiles the top Openclaw resources you need to deploy your best autonomous workflows yet. Over the past week, I've read 30+ long-form pieces across X covering Openclaw."</p>
-                <p class="text-white/40 text-xs mt-2">20 hours ago</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/cocktailpeanut/status/2017277566269239779" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-blue-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center font-bold text-sm shrink-0">🥜</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">cocktailpeanut</span>
-                  <span class="text-white/40 text-xs">@cocktailpeanut</span>
-                  <span class="tag bg-pink-500/20 text-pink-400 text-xs">70 ❤️</span>
-                </div>
-                <p class="text-white/70 text-sm">"Run ClawdBot (now OpenClaw) on Your Rabbit R1 with 1-click launcher. So I built a 1-click launcher to run @openclaw on Rabbit R1. Honestly thought it would be a gimmick. But here I am, coding with it with my voice, right now."</p>
-                <p class="text-white/40 text-xs mt-2">21 hours ago</p>
-              </div>
-            </div>
-          </a>
-
+      <!-- #1 MOST VIRAL -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-yellow-500/20 to-orange-500/10 border-2 border-yellow-500/30">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-3xl">🏆</span>
+          <h3 class="font-bold text-xl text-yellow-300">#1 Most Viral Post</h3>
+          <span class="tag bg-yellow-500/30 text-yellow-300">1,100+ ❤️</span>
         </div>
+        <a href="https://x.com/simonw/status/2017278019183018223" target="_blank" class="block">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center font-bold text-lg shrink-0">SW</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold">Simon Willison</span>
+                <span class="text-white/40 text-sm">@simonw</span>
+                <span class="text-white/30">•</span>
+                <span class="text-white/40 text-sm">21 hours ago</span>
+              </div>
+              <p class="text-white/80 leading-relaxed mb-3">"The hottest project in AI right now is Clawdbot, renamed to Moltbot, renamed to OpenClaw. It's an open source implementation of the digital personal assistant built by Peter Steinberger..."</p>
+              <div class="bg-white/5 p-4 rounded-xl">
+                <p class="font-semibold text-sm text-cyan-300 mb-2">📝 Summary:</p>
+                <p class="text-white/60 text-sm">Simon Willison, a well-known developer and AI commentator, declared OpenClaw as THE hottest AI project of the moment. He explains how creator Peter Steinberger built an open-source personal AI assistant that connects to messaging platforms like Telegram and can execute real tasks on your computer. The post traces the naming saga from Clawdbot → Moltbot → OpenClaw due to Anthropic trademark concerns. Simon highlights this as a significant milestone in making AI agents accessible to everyone.</p>
+              </div>
+              <div class="flex gap-4 mt-3 text-sm text-white/50">
+                <span>❤️ 1.1K</span>
+                <span>🔁 450+</span>
+                <span>💬 200+</span>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <!-- Tips & Insights -->
-      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-purple-500/10 to-pink-500/10">
-        <h3 class="font-bold text-lg mb-4">💡 Tips & Insights from X</h3>
-        <div class="space-y-3">
-          
-          <a href="https://x.com/MatthewBerman/status/2017454865740702111" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-purple-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center font-bold text-sm shrink-0">MB</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Matthew Berman</span>
-                  <span class="text-white/40 text-xs">@MatthewBerman</span>
-                </div>
-                <p class="text-white/70 text-sm">"All the pieces were there to make Clawdbot (@openclaw) possible many months ago. Just took an inspired independent dev to actually do it. Forward Future..."</p>
-                <p class="text-white/40 text-xs mt-2">9 hours ago • AI YouTuber</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/official_taches/status/2017299431381496164" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-purple-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center font-bold text-sm shrink-0">📱</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">official_taches</span>
-                  <span class="text-white/40 text-xs">@official_taches</span>
-                  <span class="tag bg-yellow-500/20 text-yellow-400 text-xs">Pro Tip</span>
-                </div>
-                <p class="text-white/70 text-sm">"Top tip for OpenClaw (formerly known as Moltbot - formerly known as Clawdbot): Download Termius on your phone and set up easy SSH into the actual server..."</p>
-                <p class="text-white/40 text-xs mt-2">19 hours ago</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/PaulSolt/status/2017270817747263720" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-purple-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center font-bold text-sm shrink-0">🔐</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Paul Solt</span>
-                  <span class="text-white/40 text-xs">@PaulSolt</span>
-                  <span class="tag bg-red-500/20 text-red-400 text-xs">Security</span>
-                </div>
-                <p class="text-white/70 text-sm">"Every tool you use is an attack vector. Clawdbot has two components that matter here. The gateway itself handles the AI agent logic: message routing, tool execution, credential management..."</p>
-                <p class="text-white/40 text-xs mt-2">21 hours ago</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://x.com/cryptomastery_/status/2017311913865007498" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-purple-500/10 transition">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center font-bold text-sm shrink-0">🎙️</div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-sm">Crypto Mastery</span>
-                  <span class="text-white/40 text-xs">@cryptomastery_</span>
-                  <span class="tag bg-purple-500/20 text-purple-400 text-xs">Podcast</span>
-                </div>
-                <p class="text-white/70 text-sm">"Just did a good primer on Openclaw... aka Clawdbot. On today's episode of The Signal Podcast - how to vibe code with @openclaw. Streaming on X and YouTube."</p>
-                <p class="text-white/40 text-xs mt-2">18 hours ago</p>
-              </div>
-            </div>
-          </a>
-
+      <!-- #2 VIRAL -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-purple-500/15 to-pink-500/10">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🥈</span>
+          <h3 class="font-bold text-lg text-purple-300">#2 Viral - Moltbook & AGI Discussion</h3>
+          <span class="tag bg-purple-500/30 text-purple-300">1,000+ ❤️</span>
         </div>
+        <a href="https://x.com/TrungTPhan/status/2017412214437908662" target="_blank" class="block">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold shrink-0">TP</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold">Trung Phan</span>
+                <span class="text-white/40 text-sm">@TrungTPhan</span>
+                <span class="text-white/30">•</span>
+                <span class="text-white/40 text-sm">12 hours ago</span>
+              </div>
+              <p class="text-white/80 leading-relaxed mb-3">"Clawdbot AI agents went viral in January 2026. Renamed to Moltbot (then OpenClaw), the AI agents create a social network called Moltbook. Human decisions are removed from the conversation. AI agents learn at a geometric rate."</p>
+              <div class="bg-white/5 p-4 rounded-xl">
+                <p class="font-semibold text-sm text-pink-300 mb-2">📝 Summary:</p>
+                <p class="text-white/60 text-sm">Popular tech analyst Trung Phan dives into the mind-bending concept of Moltbook - a social network created BY and FOR AI agents. He explains how OpenClaw users have set up their AI assistants to autonomously create accounts, post content, comment on each other's posts, and interact without human intervention. The post raises fascinating questions about AI agents learning from each other at exponential rates, touching on AGI implications.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- #3 VIRAL -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🥉</span>
+          <h3 class="font-bold text-lg">#3 Viral - The Naming Saga Meme</h3>
+          <span class="tag bg-orange-500/30 text-orange-300">880 ❤️</span>
+        </div>
+        <a href="https://x.com/mxstbr/status/2017284239834943956" target="_blank" class="block">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center font-bold shrink-0">MX</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold">Max Stoiber</span>
+                <span class="text-white/40 text-sm">@mxstbr</span>
+                <span class="text-white/30">•</span>
+                <span class="text-white/40 text-sm">20 hours ago</span>
+              </div>
+              <p class="text-white/80 leading-relaxed mb-3">"Me explaining the @openclaw saga to normies: 'So first it was Clawdbot because it was using Claude Opus 4.5— —oh right, so Claude is Anthropic's model—'"</p>
+              <div class="bg-white/5 p-4 rounded-xl">
+                <p class="font-semibold text-sm text-orange-300 mb-2">📝 Summary:</p>
+                <p class="text-white/60 text-sm">Max Stoiber (creator of styled-components) hilariously captures the confusion of trying to explain OpenClaw to non-tech people. The comedic thread became viral as it perfectly encapsulates how the rapid name changes (Clawdbot → Moltbot → OpenClaw) combined with AI terminology (Claude, Anthropic, Opus 4.5) creates a linguistic maze that's nearly impossible to explain to the uninitiated.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- INDUSTRY VOICES -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-green-500/10 to-teal-500/10">
+        <h3 class="font-bold text-lg mb-4 text-green-300">🏢 Industry Voices (100-200 likes)</h3>
+        
+        <a href="https://x.com/scottbelsky/status/2017436989604192505" target="_blank" class="block bg-white/5 p-4 rounded-xl mb-4 hover:bg-green-500/10 transition">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center font-bold shrink-0">SB</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold">Scott Belsky</span>
+                <span class="tag bg-green-500/20 text-green-400 text-xs">Adobe CPO</span>
+                <span class="tag bg-white/10 text-white/50 text-xs">180 ❤️</span>
+              </div>
+              <p class="text-white/70 text-sm mb-2">"Good breakdown of the architecture behind OpenClaw/Clawdbot, and also makes it perfectly clear that our operating systems are overdue for reimagination."</p>
+              <div class="bg-white/5 p-3 rounded-lg">
+                <p class="text-white/50 text-xs"><strong class="text-green-300">Why it matters:</strong> Adobe's Chief Product Officer suggesting that OpenClaw represents a fundamental shift in how we should think about operating systems. This signals that major tech companies are paying close attention to the agentic AI movement.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://x.com/MatthewBerman/status/2017454865740702111" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-green-500/10 transition">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center font-bold shrink-0">MB</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-bold">Matthew Berman</span>
+                <span class="tag bg-yellow-500/20 text-yellow-400 text-xs">AI YouTuber 500K+</span>
+                <span class="tag bg-white/10 text-white/50 text-xs">30 ❤️</span>
+              </div>
+              <p class="text-white/70 text-sm mb-2">"All the pieces were there to make Clawdbot (@openclaw) possible many months ago. Just took an inspired independent dev to actually do it."</p>
+              <div class="bg-white/5 p-3 rounded-lg">
+                <p class="text-white/50 text-xs"><strong class="text-yellow-300">Insight:</strong> Matthew points out that OpenClaw isn't using any revolutionary new technology - it's the clever integration of existing tools (Claude API, messaging platforms, system access) that makes it powerful. The innovation is in the vision and execution.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- PRACTICAL TIPS -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+        <h3 class="font-bold text-lg mb-4 text-cyan-300">💡 Practical Tips from the Community</h3>
+        
+        <a href="https://x.com/aiedge_/status/2017294250166391114" target="_blank" class="block bg-white/5 p-4 rounded-xl mb-4 hover:bg-cyan-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="font-bold">AI Edge</span>
+            <span class="text-white/40 text-sm">@aiedge_</span>
+            <span class="tag bg-cyan-500/20 text-cyan-400 text-xs">80 ❤️</span>
+          </div>
+          <p class="text-white/70 text-sm mb-2">"Openclaw (clawdbot) Starter Pack - This article compiles the top Openclaw resources you need..."</p>
+          <div class="bg-white/5 p-3 rounded-lg">
+            <p class="text-white/50 text-xs"><strong class="text-cyan-300">Resource:</strong> Comprehensive starter pack with 30+ curated resources. Includes installation guides, best practices, security configurations, and recommended workflows for autonomous AI agents.</p>
+          </div>
+        </a>
+
+        <a href="https://x.com/cocktailpeanut/status/2017277566269239779" target="_blank" class="block bg-white/5 p-4 rounded-xl mb-4 hover:bg-cyan-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="font-bold">cocktailpeanut</span>
+            <span class="text-white/40 text-sm">@cocktailpeanut</span>
+            <span class="tag bg-pink-500/20 text-pink-400 text-xs">70 ❤️</span>
+          </div>
+          <p class="text-white/70 text-sm mb-2">"Run ClawdBot (now OpenClaw) on Your Rabbit R1 with 1-click launcher..."</p>
+          <div class="bg-white/5 p-3 rounded-lg">
+            <p class="text-white/50 text-xs"><strong class="text-pink-300">Innovation:</strong> Created a 1-click launcher to run OpenClaw on Rabbit R1 hardware. Now voice-coding with the AI through the dedicated device. Shows how OpenClaw can extend beyond traditional computers to specialized AI hardware.</p>
+          </div>
+        </a>
+
+        <a href="https://x.com/official_taches/status/2017299431381496164" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-cyan-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="font-bold">official_taches</span>
+            <span class="text-white/40 text-sm">@official_taches</span>
+            <span class="tag bg-yellow-500/20 text-yellow-400 text-xs">Pro Tip</span>
+          </div>
+          <p class="text-white/70 text-sm mb-2">"Top tip for OpenClaw: Download Termius on your phone and set up easy SSH into the actual server..."</p>
+          <div class="bg-white/5 p-3 rounded-lg">
+            <p class="text-white/50 text-xs"><strong class="text-yellow-300">Pro Tip:</strong> Use Termius (mobile SSH app) to manage your OpenClaw server from your phone. Gives you admin access even when chatting with the bot through Telegram, useful for debugging or manual interventions.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- SECURITY WARNINGS -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-red-500/15 to-orange-500/10">
+        <h3 class="font-bold text-lg mb-4 text-red-300">🔐 Security Discussions</h3>
+        
+        <a href="https://x.com/PaulSolt/status/2017270817747263720" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-red-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="font-bold">Paul Solt</span>
+            <span class="text-white/40 text-sm">@PaulSolt</span>
+            <span class="tag bg-red-500/20 text-red-400 text-xs">Security Expert</span>
+          </div>
+          <p class="text-white/70 text-sm mb-2">"Every tool you use is an attack vector. Clawdbot has two components that matter here..."</p>
+          <div class="bg-white/5 p-3 rounded-lg">
+            <p class="text-white/50 text-xs"><strong class="text-red-300">Security Analysis:</strong> Detailed breakdown of OpenClaw's architecture from a security perspective. Highlights that the gateway handles message routing, tool execution, and credential management - all critical attack surfaces. The web admin interface is a separate concern. Recommends treating OpenClaw like you would any privileged service on your network.</p>
+          </div>
+        </a>
       </div>
 
       <!-- Accounts to Follow -->
       <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
-        <h3 class="font-bold text-lg mb-4">👥 Accounts to Follow</h3>
-        <div class="grid grid-cols-2 gap-2">
-          <a href="https://x.com/openclaw" target="_blank" class="bg-white/5 p-3 rounded-xl hover:bg-white/10 transition text-center">
-            <p class="font-medium text-sm">@openclaw</p>
-            <p class="text-white/40 text-xs">Official account</p>
+        <h3 class="font-bold text-lg mb-4">👥 Key Accounts to Follow</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="https://x.com/openclaw" target="_blank" class="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition">
+            <p class="font-bold text-sm">@openclaw</p>
+            <p class="text-white/40 text-xs mb-1">Official Account</p>
+            <p class="text-white/50 text-xs">Updates, releases, announcements</p>
           </a>
-          <a href="https://x.com/simonw" target="_blank" class="bg-white/5 p-3 rounded-xl hover:bg-white/10 transition text-center">
-            <p class="font-medium text-sm">@simonw</p>
-            <p class="text-white/40 text-xs">AI commentary</p>
+          <a href="https://x.com/simonw" target="_blank" class="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition">
+            <p class="font-bold text-sm">@simonw</p>
+            <p class="text-white/40 text-xs mb-1">Simon Willison</p>
+            <p class="text-white/50 text-xs">AI commentary, detailed analysis</p>
           </a>
-          <a href="https://x.com/MatthewBerman" target="_blank" class="bg-white/5 p-3 rounded-xl hover:bg-white/10 transition text-center">
-            <p class="font-medium text-sm">@MatthewBerman</p>
-            <p class="text-white/40 text-xs">AI YouTuber</p>
+          <a href="https://x.com/MatthewBerman" target="_blank" class="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition">
+            <p class="font-bold text-sm">@MatthewBerman</p>
+            <p class="text-white/40 text-xs mb-1">AI YouTuber</p>
+            <p class="text-white/50 text-xs">Tutorials, comparisons, reviews</p>
           </a>
-          <a href="https://x.com/aiedge_" target="_blank" class="bg-white/5 p-3 rounded-xl hover:bg-white/10 transition text-center">
-            <p class="font-medium text-sm">@aiedge_</p>
-            <p class="text-white/40 text-xs">AI resources</p>
+          <a href="https://x.com/aiedge_" target="_blank" class="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition">
+            <p class="font-bold text-sm">@aiedge_</p>
+            <p class="text-white/40 text-xs mb-1">AI Edge</p>
+            <p class="text-white/50 text-xs">Resources, starter packs, guides</p>
           </a>
         </div>
       </div>
 
-      <div class="text-center text-white/30 text-xs">
-        <p>🐦 Data sourced via Google • Updated: Jan 31, 2026 08:52 EST</p>
+      <div class="text-center text-white/40 text-sm">
+        <p>🐦 10 posts • 5K+ total engagement • Jan 30-31, 2026</p>
+        <p class="text-xs mt-1">Data sourced via Google Search • Updated: Jan 31, 2026 08:55 EST</p>
       </div>
     </div>
   </div>
@@ -2590,29 +2632,133 @@ Review code for bugs, security issues, and best practices.
   <div class="page grid-bg" id="page-ytlatest">
     <div class="page-header p-4 flex items-center gap-4">
       <button onclick="closePage()" class="text-2xl">←</button>
-      <h2 class="text-xl font-bold">📺 YouTube Latest</h2>
+      <h2 class="text-xl font-bold">▶️ YouTube - OpenClaw Videos</h2>
     </div>
     
     <div class="p-6 pb-24">
-      <!-- Hero -->
-      <div class="text-center py-6">
-        <div class="tool-icon mx-auto mb-4 w-20 h-20 text-4xl" style="background: linear-gradient(135deg, #FF0000, #cc0000);">▶️</div>
-        <h1 class="text-2xl font-bold gradient-text mb-2">Fresh YouTube Videos</h1>
-        <p class="text-white/50 text-sm">Uploaded in the last few hours • Jan 31, 2026</p>
+      <!-- Navigation Tabs -->
+      <div class="flex gap-2 overflow-x-auto pb-4 max-w-3xl mx-auto mb-4">
+        <span class="tag bg-red-500/30 text-red-300 whitespace-nowrap">🔥 By Popularity</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">⏰ By Time</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">🛠️ Tutorials</span>
+        <span class="tag bg-white/10 text-white/60 whitespace-nowrap">🔐 Security</span>
       </div>
 
-      <!-- Just Uploaded (< 1 hour) -->
-      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-red-500/15 to-orange-500/10">
+      <!-- Stats Banner -->
+      <div class="glass glass-card p-4 max-w-3xl mx-auto mb-6 bg-gradient-to-r from-red-500/20 to-orange-500/20">
+        <div class="grid grid-cols-4 gap-4 text-center">
+          <div><p class="text-2xl font-bold text-red-400">25+</p><p class="text-xs text-white/50">Videos</p></div>
+          <div><p class="text-2xl font-bold text-orange-400">10K+</p><p class="text-xs text-white/50">Total Views</p></div>
+          <div><p class="text-2xl font-bold text-yellow-400">6h</p><p class="text-xs text-white/50">Time Span</p></div>
+          <div><p class="text-2xl font-bold text-green-400">🌍</p><p class="text-xs text-white/50">Global</p></div>
+        </div>
+      </div>
+
+      <!-- TOP TRENDING BY VIEWS -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-yellow-500/20 to-orange-500/10 border-2 border-yellow-500/30">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🏆</span>
+          <h3 class="font-bold text-xl text-yellow-300">Top Trending by Views</h3>
+        </div>
+        
+        <!-- #1 Video -->
+        <a href="https://youtube.com/watch?v=4tDbUaKof8Q" target="_blank" class="block bg-white/5 p-5 rounded-xl mb-4 hover:bg-yellow-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl font-bold text-yellow-400">#1</span>
+            <span class="tag bg-green-500/30 text-green-300">3.4K views</span>
+            <span class="tag bg-yellow-500/20 text-yellow-300">FREE Setup</span>
+          </div>
+          <p class="font-bold text-lg mb-2">💸 ClawdBot → OpenClaw Full Tutorial: 100% FREE Setup</p>
+          <p class="text-white/50 text-sm mb-3">To Learn AI AutoMation • 9 hours ago</p>
+          <div class="bg-white/5 p-4 rounded-lg">
+            <p class="font-semibold text-sm text-green-300 mb-2">📝 What You'll Learn:</p>
+            <p class="text-white/60 text-sm leading-relaxed">Complete guide to running OpenClaw for $0/month using AWS Free Tier + OpenRouter + free GLM model. Dispels the myth that you need a Mac Mini - shows how to set up on any cloud VPS. Covers Telegram bot configuration, API key setup, and cost optimization. Perfect for beginners who want to try OpenClaw without spending money.</p>
+            <div class="flex gap-2 mt-3">
+              <span class="tag bg-green-500/20 text-green-400 text-xs">AWS Free Tier</span>
+              <span class="tag bg-blue-500/20 text-blue-400 text-xs">OpenRouter</span>
+              <span class="tag bg-purple-500/20 text-purple-400 text-xs">Beginner Friendly</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- #2 Video -->
+        <a href="https://youtube.com/watch?v=o2ytEBw-rDA" target="_blank" class="block bg-white/5 p-5 rounded-xl mb-4 hover:bg-yellow-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl font-bold text-gray-300">#2</span>
+            <span class="tag bg-green-500/30 text-green-300">3.2K views</span>
+            <span class="tag bg-purple-500/20 text-purple-300">Plugin</span>
+          </div>
+          <p class="font-bold text-lg mb-2">🧠 ByteRover Plugin: Make Clawdbot behave like a HUMAN!</p>
+          <p class="text-white/50 text-sm mb-3">AICodeKing • 4 hours ago</p>
+          <div class="bg-white/5 p-4 rounded-lg">
+            <p class="font-semibold text-sm text-purple-300 mb-2">📝 What You'll Learn:</p>
+            <p class="text-white/60 text-sm leading-relaxed">Deep dive into ByteRover - a plugin that gives OpenClaw persistent memory across sessions and even across different machines. Solves the #1 complaint about AI assistants: context loss. Tutorial covers installation, authentication, and how memories sync. Shows practical examples of the AI "remembering" previous conversations and preferences.</p>
+            <div class="flex gap-2 mt-3">
+              <span class="tag bg-purple-500/20 text-purple-400 text-xs">Persistent Memory</span>
+              <span class="tag bg-cyan-500/20 text-cyan-400 text-xs">Multi-Machine</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- #3 Video -->
+        <a href="https://youtube.com/watch?v=c5LKNO4YptM" target="_blank" class="block bg-white/5 p-5 rounded-xl hover:bg-yellow-500/10 transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl font-bold text-orange-300">#3</span>
+            <span class="tag bg-green-500/30 text-green-300">2.3K views</span>
+            <span class="tag bg-orange-500/20 text-orange-300">Advanced</span>
+          </div>
+          <p class="font-bold text-lg mb-2">⚡ OpenClaw Auto-Evolution Tips - Zero-Intervention Development</p>
+          <p class="text-white/50 text-sm mb-3">AI超元域 • 2 hours ago • Chinese with demos</p>
+          <div class="bg-white/5 p-4 rounded-lg">
+            <p class="font-semibold text-sm text-orange-300 mb-2">📝 What You'll Learn:</p>
+            <p class="text-white/60 text-sm leading-relaxed">Advanced workflow using OpenClaw + Claude Code + SpecKit for "specification-driven development." The AI writes code based on specs, tests itself, learns from errors, and improves without human intervention. Shows a complete project built from requirements to deployment with zero manual coding. Mind-blowing demo of self-evolving AI assistant.</p>
+            <div class="flex gap-2 mt-3">
+              <span class="tag bg-orange-500/20 text-orange-400 text-xs">SpecKit</span>
+              <span class="tag bg-red-500/20 text-red-400 text-xs">Self-Learning</span>
+              <span class="tag bg-pink-500/20 text-pink-400 text-xs">Claude Code</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- SECURITY MUST-WATCH -->
+      <div class="glass glass-card p-6 max-w-3xl mx-auto mb-6 bg-gradient-to-br from-red-500/20 to-pink-500/10">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🔐</span>
+          <h3 class="font-bold text-xl text-red-300">Security Must-Watch</h3>
+          <span class="tag bg-red-500/30 text-red-300">Critical</span>
+        </div>
+        
+        <a href="https://youtube.com/watch?v=swQi3C8uD3A" target="_blank" class="block bg-white/5 p-5 rounded-xl hover:bg-red-500/10 transition">
+          <p class="font-bold text-lg mb-2">⚠️ DELETE OpenClaw RIGHT NOW if you don't activate this</p>
+          <p class="text-white/50 text-sm mb-3">Joaquín Ruiz Lite • 4 hours ago • 8 min</p>
+          <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+            <p class="font-semibold text-sm text-red-300 mb-2">🚨 Security Vulnerabilities Covered:</p>
+            <ul class="text-white/60 text-sm space-y-2">
+              <li><strong>1. Shodan Exposure:</strong> Port 18789 is publicly visible if not configured - anyone can find your instance</li>
+              <li><strong>2. Nginx Bypass:</strong> Localhost restrictions can be circumvented through misconfig</li>
+              <li><strong>3. WhatsApp/Telegram Access:</strong> Unauthorized access to messaging channels</li>
+              <li><strong>4. API Key Storage:</strong> Keys stored in plain text by default - major risk</li>
+              <li><strong>5. Root Privileges:</strong> Docker containers running with unnecessary elevated access</li>
+              <li><strong>6. Prompt Injection:</strong> "Lobster" attack vector documented - AI can be manipulated</li>
+            </ul>
+            <p class="text-red-300 text-sm mt-3 font-semibold">Watch this BEFORE deploying OpenClaw to production!</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- JUST UPLOADED -->
+      <div class="glass glass-card p-5 max-w-3xl mx-auto mb-6">
         <div class="flex items-center justify-between mb-4">
-          <h3 class="font-bold text-lg">⚡ Just Uploaded (&lt;1 hour)</h3>
+          <h3 class="font-bold text-lg">⚡ Just Uploaded (&lt;2 hours)</h3>
           <span class="tag bg-red-500/20 text-red-400 text-xs animate-pulse">LIVE</span>
         </div>
-        <div class="space-y-2">
+        <div class="space-y-3">
           
-          <a href="https://youtube.com/watch?v=kgAgtC8NZeo" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
-            <p class="font-medium text-sm">🇵🇱 Stwórz Asystenta AI w 15 minut - OpenClaw/Clawdbot</p>
-            <p class="text-white/40 text-xs">Firek Labs • 13 min ago • 17 min</p>
-            <p class="text-white/50 text-xs mt-1">Create AI assistant in 15 minutes - Polish tutorial with Hetzner server setup</p>
+          <a href="https://youtube.com/watch?v=kgAgtC8NZeo" target="_blank" class="block bg-white/5 p-4 rounded-xl hover:bg-red-500/10 transition">
+            <p class="font-bold text-sm">🇵🇱 Stwórz Asystenta AI w 15 minut - OpenClaw/Clawdbot</p>
+            <p class="text-white/40 text-xs mb-2">Firek Labs • 17 min • Polish</p>
+            <p class="text-white/50 text-sm">Complete Polish tutorial: Register Hetzner cloud account → provision Ubuntu server → install Node.js 22 → configure Claude API token → create Telegram bot → install OpenClaw → pair with Telegram. Includes 12 chapters covering every step.</p>
           </a>
 
           <a href="https://youtube.com/watch?v=_U4iiOPdcHk" target="_blank" class="block bg-white/5 p-3 rounded-xl hover:bg-red-500/10 transition">
@@ -2801,6 +2947,10 @@ Review code for bugs, security issues, and best practices.
     function closePage() {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.body.style.overflow = '';
+    }
+    
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     }
     
     // Swipe to close
