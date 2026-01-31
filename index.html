@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Hub | Clawdbot, Moltbot & More</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050508;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.4;
+      animation: pulse 8s infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+    }
+    
+    .glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .glass-card {
+      border-radius: 24px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 30px 60px rgba(139, 92, 246, 0.25);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .gradient-purple { background: linear-gradient(135deg, #8b5cf6, #a855f7); }
+    .gradient-pink { background: linear-gradient(135deg, #ec4899, #f472b6); }
+    .gradient-cyan { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+    .gradient-green { background: linear-gradient(135deg, #10b981, #34d399); }
+    .gradient-orange { background: linear-gradient(135deg, #f97316, #fb923c); }
+    
+    .btn-glow {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+    }
+    
+    .page {
+      position: fixed;
+      inset: 0;
+      background: #050508;
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .page.active {
+      transform: translateX(0);
+    }
+    
+    .page-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(5, 5, 8, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .tool-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tool-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    }
+    
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+    
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .social-btn:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .float { animation: float 3s ease-in-out infinite; }
+    
+    /* AI animated icon */
+    .ai-icon {
+      width: 120px;
+      height: 120px;
+      position: relative;
+    }
+    
+    .ai-icon .ring {
+      position: absolute;
+      border: 2px solid;
+      border-radius: 50%;
+      animation: spin 10s linear infinite;
+    }
+    
+    .ai-icon .ring:nth-child(1) {
+      inset: 0;
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+    
+    .ai-icon .ring:nth-child(2) {
+      inset: 15px;
+      border-color: rgba(236, 72, 153, 0.5);
+      animation-direction: reverse;
+      animation-duration: 8s;
+    }
+    
+    .ai-icon .ring:nth-child(3) {
+      inset: 30px;
+      border-color: rgba(6, 182, 212, 0.5);
+      animation-duration: 6s;
+    }
+    
+    .ai-icon .core {
+      position: absolute;
+      inset: 40px;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="grid-bg">
+  <!-- Orbs -->
+  <div class="orb" style="width: 500px; height: 500px; background: #8b5cf6; top: -200px; left: -200px;"></div>
+  <div class="orb" style="width: 400px; height: 400px; background: #ec4899; bottom: -150px; right: -150px;"></div>
+  <div class="orb" style="width: 300px; height: 300px; background: #06b6d4; top: 50%; right: -100px;"></div>
+
+  <!-- HOME PAGE -->
+  <div class="relative z-10 min-h-screen">
+    
+    <!-- Hero -->
+    <div class="text-center py-16 px-6">
+      <div class="ai-icon mx-auto mb-8">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="core">🤖</div>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black gradient-text mb-4">AI Tools Hub</h1>
+      <p class="text-lg text-white/60 max-w-md mx-auto">Discover the best AI assistants, coding bots, and productivity tools</p>
+      
+      <!-- Search -->
+      <div class="glass glass-card p-2 max-w-md mx-auto mt-8 flex">
+        <input type="text" placeholder="Search tools..." class="flex-1 bg-transparent px-4 py-3 outline-none text-white placeholder-white/40">
+        <button class="btn-glow px-6 py-3 rounded-xl font-semibold">Search</button>
+      </div>
+    </div>
+    
+    <!-- Categories -->
+    <div class="px-6 pb-8">
+      <div class="flex gap-3 overflow-x-auto pb-4 max-w-4xl mx-auto">
+        <button class="tag bg-purple-500/20 text-purple-300 whitespace-nowrap">All Tools</button>
+        <button class="tag bg-white/5 text-white/60 whitespace-nowrap">Coding Bots</button>
+        <button class="tag bg-white/5 text-white/60 whitespace-nowrap">AI Assistants</button>
+        <button class="tag bg-white/5 text-white/60 whitespace-nowrap">Productivity</button>
+        <button class="tag bg-white/5 text-white/60 whitespace-nowrap">Research</button>
+      </div>
+    </div>
+    
+    <!-- Featured Tools -->
+    <div class="px-6 pb-12">
+      <h2 class="text-xl font-bold mb-6 max-w-4xl mx-auto">🔥 Featured Tools</h2>
+      
+      <div class="space-y-4 max-w-4xl mx-auto">
+        
+        <!-- Clawdbot -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('clawdbot')">
+          <div class="flex gap-4">
+            <div class="tool-icon gradient-purple flex-shrink-0">🐾</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">Clawdbot</h3>
+                <span class="tag bg-green-500/20 text-green-400">Popular</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">Your AI-powered gateway daemon. Connect Claude to Telegram, Discord, Slack & more.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Multi-platform</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Voice</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Automation</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
+        <!-- Claude Code -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('claudecode')">
+          <div class="flex gap-4">
+            <div class="tool-icon gradient-orange flex-shrink-0">⚡</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">Claude Code</h3>
+                <span class="tag bg-orange-500/20 text-orange-400">Hot</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">Anthropic's official CLI for Claude. Agentic coding with terminal access.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">CLI</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Coding</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Agentic</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
+        <!-- Gemini CLI -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('gemini')">
+          <div class="flex gap-4">
+            <div class="tool-icon gradient-cyan flex-shrink-0">♊</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">Gemini CLI</h3>
+                <span class="tag bg-cyan-500/20 text-cyan-400">New</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">Google's AI in your terminal. One-shot Q&A, summaries, and image generation.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">CLI</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Images</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Free tier</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
+        <!-- Cursor -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('cursor')">
+          <div class="flex gap-4">
+            <div class="tool-icon gradient-pink flex-shrink-0">📝</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">Cursor</h3>
+                <span class="tag bg-pink-500/20 text-pink-400">Editor</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">AI-first code editor. Built on VSCode with native AI integration.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">IDE</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Multi-model</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Copilot++</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
+        <!-- Codex CLI -->
+        <div class="glass glass-card p-6 cursor-pointer" onclick="openPage('codex')">
+          <div class="flex gap-4">
+            <div class="tool-icon gradient-green flex-shrink-0">🟢</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-lg">OpenAI Codex CLI</h3>
+                <span class="tag bg-green-500/20 text-green-400">Official</span>
+              </div>
+              <p class="text-white/50 text-sm mb-3">OpenAI's lightweight coding agent. Runs in your terminal with sandbox.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">CLI</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Sandbox</span>
+                <span class="text-xs bg-white/5 px-2 py-1 rounded-full">Safe</span>
+              </div>
+            </div>
+            <div class="text-white/30 self-center">→</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Latest Updates -->
+    <div class="px-6 pb-12">
+      <h2 class="text-xl font-bold mb-6 max-w-4xl mx-auto">📰 Latest Updates</h2>
+      
+      <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        
+        <div class="glass glass-card p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">🐦</span>
+            <span class="text-white/40 text-sm">X / Twitter</span>
+          </div>
+          <p class="text-sm text-white/70">Claude 4 Opus now available with extended thinking mode for complex reasoning tasks.</p>
+          <p class="text-xs text-white/30 mt-3">2 hours ago</p>
+        </div>
+        
+        <div class="glass glass-card p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">📺</span>
+            <span class="text-white/40 text-sm">YouTube</span>
+          </div>
+          <p class="text-sm text-white/70">New tutorial: Setting up Clawdbot with multiple AI providers and voice integration.</p>
+          <p class="text-xs text-white/30 mt-3">5 hours ago</p>
+        </div>
+        
+        <div class="glass glass-card p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">🐦</span>
+            <span class="text-white/40 text-sm">X / Twitter</span>
+          </div>
+          <p class="text-sm text-white/70">Gemini 2.5 Pro released with improved coding capabilities and longer context.</p>
+          <p class="text-xs text-white/30 mt-3">1 day ago</p>
+        </div>
+        
+        <div class="glass glass-card p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">📺</span>
+            <span class="text-white/40 text-sm">YouTube</span>
+          </div>
+          <p class="text-sm text-white/70">Cursor vs Claude Code vs Codex CLI - Ultimate comparison for developers.</p>
+          <p class="text-xs text-white/30 mt-3">2 days ago</p>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="px-6 pb-12">
+      <h2 class="text-xl font-bold mb-6 max-w-4xl mx-auto">🔗 Follow for Updates</h2>
+      
+      <div class="flex flex-wrap gap-4 max-w-4xl mx-auto">
+        <a href="https://x.com" class="social-btn">
+          <span>𝕏</span>
+          <span>Twitter / X</span>
+        </a>
+        <a href="https://youtube.com" class="social-btn">
+          <span>📺</span>
+          <span>YouTube</span>
+        </a>
+        <a href="https://discord.com" class="social-btn">
+          <span>💬</span>
+          <span>Discord</span>
+        </a>
+        <a href="https://github.com" class="social-btn">
+          <span>⚫</span>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="px-6 pb-12 text-center">
+      <p class="text-white/30 text-sm">Built by Rathish • Jan 2026</p>
+    </div>
+    
+  </div>
+
+  <!-- CLAWDBOT PAGE -->
+  <div class="page grid-bg" id="page-clawdbot">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">Clawdbot</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <!-- Hero -->
+      <div class="text-center py-8">
+        <div class="tool-icon gradient-purple mx-auto mb-6 w-24 h-24 text-5xl">🐾</div>
+        <h1 class="text-3xl font-bold gradient-text mb-2">Clawdbot</h1>
+        <p class="text-white/50">AI Gateway Daemon</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="tag bg-green-500/20 text-green-400">Open Source</span>
+          <span class="tag bg-purple-500/20 text-purple-400">Multi-Platform</span>
+        </div>
+      </div>
+      
+      <!-- Description -->
+      <div class="glass glass-card p-6 max-w-lg mx-auto mb-6">
+        <p class="text-white/70 leading-relaxed">
+          Clawdbot is your AI-powered gateway daemon that connects Claude (and other AI models) to messaging platforms like Telegram, Discord, Slack, WhatsApp, and more. It enables voice messages, file handling, and seamless AI integration into your daily workflow.
+        </p>
+      </div>
+      
+      <!-- Features -->
+      <div class="max-w-lg mx-auto space-y-4 mb-8">
+        <h3 class="font-bold text-lg">✨ Features</h3>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📱</span>
+            <div>
+              <div class="font-semibold">Multi-Platform</div>
+              <div class="text-white/50 text-sm">Telegram, Discord, Slack, WhatsApp, Signal</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🎤</span>
+            <div>
+              <div class="font-semibold">Voice Support</div>
+              <div class="text-white/50 text-sm">Send and receive voice messages with TTS</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🤖</span>
+            <div>
+              <div class="font-semibold">Multi-Agent</div>
+              <div class="text-white/50 text-sm">Run multiple AI agents with different personalities</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <div class="font-semibold">Skills System</div>
+              <div class="text-white/50 text-sm">Extend with custom skills and integrations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Links -->
+      <div class="max-w-lg mx-auto space-y-3">
+        <a href="https://github.com/clawdbot/clawdbot" class="social-btn w-full justify-center">
+          <span>⚫</span> GitHub Repository
+        </a>
+        <a href="https://docs.clawd.bot" class="social-btn w-full justify-center">
+          <span>📚</span> Documentation
+        </a>
+        <a href="https://discord.com/invite/clawd" class="social-btn w-full justify-center">
+          <span>💬</span> Join Discord
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLAUDE CODE PAGE -->
+  <div class="page grid-bg" id="page-claudecode">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">Claude Code</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <div class="text-center py-8">
+        <div class="tool-icon gradient-orange mx-auto mb-6 w-24 h-24 text-5xl">⚡</div>
+        <h1 class="text-3xl font-bold" style="color: #f97316">Claude Code</h1>
+        <p class="text-white/50">Anthropic's Official CLI</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="tag bg-orange-500/20 text-orange-400">Official</span>
+          <span class="tag bg-cyan-500/20 text-cyan-400">Agentic</span>
+        </div>
+      </div>
+      
+      <div class="glass glass-card p-6 max-w-lg mx-auto mb-6">
+        <p class="text-white/70 leading-relaxed">
+          Claude Code is Anthropic's official command-line interface for Claude. It provides agentic coding capabilities with terminal access, file operations, and seamless integration with your development workflow.
+        </p>
+      </div>
+      
+      <div class="max-w-lg mx-auto space-y-4 mb-8">
+        <h3 class="font-bold text-lg">✨ Features</h3>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">💻</span>
+            <div>
+              <div class="font-semibold">Terminal Native</div>
+              <div class="text-white/50 text-sm">Runs directly in your terminal</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📁</span>
+            <div>
+              <div class="font-semibold">File Operations</div>
+              <div class="text-white/50 text-sm">Read, write, edit files directly</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🔧</span>
+            <div>
+              <div class="font-semibold">Shell Commands</div>
+              <div class="text-white/50 text-sm">Execute commands with approval flow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEMINI PAGE -->
+  <div class="page grid-bg" id="page-gemini">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">Gemini CLI</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <div class="text-center py-8">
+        <div class="tool-icon gradient-cyan mx-auto mb-6 w-24 h-24 text-5xl">♊</div>
+        <h1 class="text-3xl font-bold" style="color: #06b6d4">Gemini CLI</h1>
+        <p class="text-white/50">Google AI in Terminal</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="tag bg-cyan-500/20 text-cyan-400">Google</span>
+          <span class="tag bg-green-500/20 text-green-400">Free Tier</span>
+        </div>
+      </div>
+      
+      <div class="glass glass-card p-6 max-w-lg mx-auto mb-6">
+        <p class="text-white/70 leading-relaxed">
+          Gemini CLI brings Google's powerful AI models to your terminal. Perfect for quick Q&A, summaries, and even image generation with Imagen 3.
+        </p>
+      </div>
+      
+      <div class="max-w-lg mx-auto space-y-4 mb-8">
+        <h3 class="font-bold text-lg">✨ Features</h3>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <div class="font-semibold">One-Shot Mode</div>
+              <div class="text-white/50 text-sm">Quick answers without interactive mode</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🖼️</span>
+            <div>
+              <div class="font-semibold">Image Generation</div>
+              <div class="text-white/50 text-sm">Create images with Imagen 3</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🆓</span>
+            <div>
+              <div class="font-semibold">Generous Free Tier</div>
+              <div class="text-white/50 text-sm">Great for personal projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURSOR PAGE -->
+  <div class="page grid-bg" id="page-cursor">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">Cursor</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <div class="text-center py-8">
+        <div class="tool-icon gradient-pink mx-auto mb-6 w-24 h-24 text-5xl">📝</div>
+        <h1 class="text-3xl font-bold" style="color: #ec4899">Cursor</h1>
+        <p class="text-white/50">AI-First Code Editor</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="tag bg-pink-500/20 text-pink-400">Editor</span>
+          <span class="tag bg-purple-500/20 text-purple-400">VSCode Based</span>
+        </div>
+      </div>
+      
+      <div class="glass glass-card p-6 max-w-lg mx-auto mb-6">
+        <p class="text-white/70 leading-relaxed">
+          Cursor is an AI-first code editor built on VSCode. It features native AI integration with multiple models, intelligent autocomplete, and chat-based coding assistance.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CODEX PAGE -->
+  <div class="page grid-bg" id="page-codex">
+    <div class="page-header p-4 flex items-center gap-4">
+      <button onclick="closePage()" class="text-2xl">←</button>
+      <h2 class="text-xl font-bold">OpenAI Codex CLI</h2>
+    </div>
+    
+    <div class="p-6 pb-24">
+      <div class="text-center py-8">
+        <div class="tool-icon gradient-green mx-auto mb-6 w-24 h-24 text-5xl">🟢</div>
+        <h1 class="text-3xl font-bold" style="color: #10b981">Codex CLI</h1>
+        <p class="text-white/50">OpenAI's Coding Agent</p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="tag bg-green-500/20 text-green-400">OpenAI</span>
+          <span class="tag bg-cyan-500/20 text-cyan-400">Sandbox</span>
+        </div>
+      </div>
+      
+      <div class="glass glass-card p-6 max-w-lg mx-auto mb-6">
+        <p class="text-white/70 leading-relaxed">
+          OpenAI Codex CLI is a lightweight coding agent that runs in your terminal. It features a sandboxed execution environment for safe code execution.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPage(name) {
+      document.getElementById(`page-${name}`).classList.add('active');
+      document.body.style.overflow = 'hidden';
+      history.pushState({page: name}, '');
+    }
+    
+    function closePage() {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.body.style.overflow = '';
+    }
+    
+    // Swipe to close
+    let startX = 0;
+    document.querySelectorAll('.page').forEach(page => {
+      page.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+      page.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].clientX - startX;
+        if (diff > 80 && startX < 50) closePage();
+      });
+    });
+    
+    window.addEventListener('popstate', closePage);
+  </script>
+</body>
+</html>
