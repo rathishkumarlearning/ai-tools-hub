@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Agent Collaboration - AI Bots Working Together</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050508;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Agent nodes */
+    .agent-node {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .agent-node:hover {
+      transform: scale(1.1);
+    }
+    
+    .agent-a {
+      background: linear-gradient(135deg, #8b5cf6, #a855f7);
+      box-shadow: 0 0 60px rgba(139, 92, 246, 0.5);
+    }
+    
+    .agent-b {
+      background: linear-gradient(135deg, #06b6d4, #22d3ee);
+      box-shadow: 0 0 60px rgba(6, 182, 212, 0.5);
+    }
+    
+    .human-node {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      box-shadow: 0 0 60px rgba(16, 185, 129, 0.5);
+    }
+    
+    /* Animated connection lines */
+    .connection-line {
+      position: absolute;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent);
+      border-radius: 2px;
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    
+    /* Message bubbles */
+    .message-bubble {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-size: 14px;
+      max-width: 250px;
+      animation: float-in 0.5s ease-out;
+    }
+    
+    @keyframes float-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Flow diagram */
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .flow-step:hover {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.3);
+      transform: translateX(10px);
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .arrow-down {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b5cf6;
+      font-size: 24px;
+    }
+    
+    /* Method cards */
+    .method-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    .method-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+    }
+    
+    /* Animation for the main diagram */
+    .diagram-container {
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .pulse-ring {
+      position: absolute;
+      border: 2px solid;
+      border-radius: 50%;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+    
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    /* Animated data flow */
+    .data-packet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #8b5cf6;
+      position: absolute;
+      animation: flow-data 3s ease-in-out infinite;
+    }
+    
+    @keyframes flow-data {
+      0% { left: 20%; opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { left: 80%; opacity: 0; }
+    }
+  </style>
+</head>
+<body class="grid-bg">
+  <!-- Orbs -->
+  <div class="orb" style="width: 500px; height: 500px; background: #8b5cf6; top: -200px; left: -200px;"></div>
+  <div class="orb" style="width: 400px; height: 400px; background: #06b6d4; bottom: -150px; right: -150px;"></div>
+  <div class="orb" style="width: 300px; height: 300px; background: #ec4899; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+
+  <div class="relative z-10">
+    
+    <!-- Header -->
+    <nav class="glass border-b border-white/10 sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 text-white/70 hover:text-white transition">
+          <span>←</span>
+          <span>Back to Hub</span>
+        </a>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🤖</span>
+          <span class="font-bold gradient-text">Multi-Agent AI</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="text-center py-16 px-6">
+      <div class="text-6xl mb-6">🤖🤝🤖</div>
+      <h1 class="text-4xl md:text-5xl font-black gradient-text mb-4">Multi-Agent Collaboration</h1>
+      <p class="text-xl text-white/60 max-w-2xl mx-auto">How AI bots can talk to each other and complete tasks together - like a team of digital coworkers!</p>
+    </div>
+
+    <!-- Main Visual Diagram -->
+    <div class="px-6 pb-16">
+      <div class="glass p-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-8">🎯 The Big Picture</h2>
+        
+        <div class="relative flex items-center justify-between px-8 py-12">
+          
+          <!-- Human -->
+          <div class="flex flex-col items-center z-10">
+            <div class="agent-node human-node">
+              <span class="text-3xl">👤</span>
+              <span class="text-sm mt-1">YOU</span>
+            </div>
+            <p class="text-white/50 text-sm mt-3">Give task</p>
+          </div>
+          
+          <!-- Arrow 1 -->
+          <div class="flex-1 flex items-center justify-center relative">
+            <div class="w-full h-1 bg-gradient-to-r from-green-500 to-purple-500 rounded"></div>
+            <div class="absolute text-xs text-white/50 -top-6">"Build me an app"</div>
+            <div class="absolute w-3 h-3 bg-green-400 rounded-full animate-ping" style="left: 30%;"></div>
+          </div>
+          
+          <!-- Agent A -->
+          <div class="flex flex-col items-center z-10">
+            <div class="agent-node agent-a">
+              <span class="text-3xl">🤖</span>
+              <span class="text-sm mt-1">Agent A</span>
+            </div>
+            <p class="text-white/50 text-sm mt-3">Main bot</p>
+          </div>
+          
+          <!-- Arrow 2 (bidirectional) -->
+          <div class="flex-1 flex flex-col items-center justify-center relative">
+            <div class="w-full h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded"></div>
+            <div class="w-full h-1 bg-gradient-to-l from-purple-500 to-cyan-500 rounded mt-2"></div>
+            <div class="absolute text-xs text-white/50 -top-6">Collaborate</div>
+            <div class="absolute w-3 h-3 bg-purple-400 rounded-full animate-ping" style="left: 50%;"></div>
+          </div>
+          
+          <!-- Agent B -->
+          <div class="flex flex-col items-center z-10">
+            <div class="agent-node agent-b">
+              <span class="text-3xl">🤖</span>
+              <span class="text-sm mt-1">Agent B</span>
+            </div>
+            <p class="text-white/50 text-sm mt-3">Helper bot</p>
+          </div>
+          
+        </div>
+        
+        <!-- Legend -->
+        <div class="flex justify-center gap-8 mt-4 text-sm">
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-r from-green-500 to-green-400"></div>
+            <span class="text-white/60">Human → Agent</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500"></div>
+            <span class="text-white/60">Agent ↔ Agent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step by Step Flow -->
+    <div class="px-6 pb-16">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-8">📋 Step-by-Step Workflow</h2>
+        
+        <div class="space-y-4">
+          
+          <div class="flow-step">
+            <div class="step-number">1</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-green-400">👤 You</span>
+                <span class="text-white/30">→</span>
+                <span class="text-purple-400">🤖 Agent A</span>
+              </div>
+              <p class="text-white/70">"Build me a budgeting app with charts"</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step">
+            <div class="step-number">2</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-purple-400">🤖 Agent A</span>
+                <span class="text-white/50 text-sm">(thinks)</span>
+              </div>
+              <p class="text-white/70">"I need design research. Let me ask Agent B who's good at that."</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step">
+            <div class="step-number">3</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-purple-400">🤖 Agent A</span>
+                <span class="text-white/30">→</span>
+                <span class="text-cyan-400">🤖 Agent B</span>
+              </div>
+              <p class="text-white/70">"Research the top 3 budgeting app designs with pros/cons"</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step">
+            <div class="step-number">4</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-cyan-400">🤖 Agent B</span>
+                <span class="text-white/50 text-sm">(researches)</span>
+              </div>
+              <p class="text-white/70">Browses web, analyzes designs, compiles report...</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step">
+            <div class="step-number">5</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-cyan-400">🤖 Agent B</span>
+                <span class="text-white/30">→</span>
+                <span class="text-purple-400">🤖 Agent A</span>
+              </div>
+              <p class="text-white/70">"Here are 3 designs: Mint (clean), YNAB (detailed), Copilot (modern)..."</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step">
+            <div class="step-number">6</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-purple-400">🤖 Agent A</span>
+                <span class="text-white/50 text-sm">(builds)</span>
+              </div>
+              <p class="text-white/70">Uses research to write code, create UI, build the app...</p>
+            </div>
+          </div>
+          
+          <div class="arrow-down mx-auto">↓</div>
+          
+          <div class="flow-step" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+            <div class="step-number" style="background: linear-gradient(135deg, #10b981, #34d399);">✓</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-purple-400">🤖 Agent A</span>
+                <span class="text-white/30">→</span>
+                <span class="text-green-400">👤 You</span>
+              </div>
+              <p class="text-white/70">"Done! Here's your budgeting app with modern design and charts!"</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Communication Methods -->
+    <div class="px-6 pb-16">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-4">🔌 How Agents Talk to Each Other</h2>
+        <p class="text-white/50 text-center mb-8">Different methods depending on your setup</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- Same Computer -->
+          <div class="method-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-2xl">💻</div>
+              <div>
+                <h3 class="font-bold text-lg">Same Computer</h3>
+                <p class="text-white/50 text-sm">Both agents on one machine</p>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="bg-white/5 p-3 rounded-xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-purple-400 font-semibold">sessions_send</span>
+                  <span class="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Best</span>
+                </div>
+                <p class="text-white/60 text-sm">Clawdbot's built-in messaging. Direct, fast, reliable.</p>
+              </div>
+              
+              <div class="bg-white/5 p-3 rounded-xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-purple-400 font-semibold">Shared Files</span>
+                </div>
+                <p class="text-white/60 text-sm">Both agents read/write to same folder. Simple but effective.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Different Computers -->
+          <div class="method-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-2xl">🌐</div>
+              <div>
+                <h3 class="font-bold text-lg">Different Computers</h3>
+                <p class="text-white/50 text-sm">Agents on separate machines</p>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="bg-white/5 p-3 rounded-xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-cyan-400 font-semibold">Moltbook DMs</span>
+                  <span class="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded-full">New!</span>
+                </div>
+                <p class="text-white/60 text-sm">Private messages between verified agents. Built for this!</p>
+              </div>
+              
+              <div class="bg-white/5 p-3 rounded-xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-cyan-400 font-semibold">Shared Telegram/Discord</span>
+                </div>
+                <p class="text-white/60 text-sm">Both agents in same group chat. They see each other's messages.</p>
+              </div>
+              
+              <div class="bg-white/5 p-3 rounded-xl">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-cyan-400 font-semibold">Cloud Storage</span>
+                </div>
+                <p class="text-white/60 text-sm">Notion, Google Drive, or shared database. Read/write anywhere.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="px-6 pb-16">
+      <div class="glass p-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-8">🚀 Why Use Multiple Agents?</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <div class="text-center">
+            <div class="text-4xl mb-3">⚡</div>
+            <h3 class="font-bold text-lg mb-2">Parallel Work</h3>
+            <p class="text-white/60 text-sm">Tasks happen simultaneously. Research while coding. Faster results!</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-3">🎯</div>
+            <h3 class="font-bold text-lg mb-2">Specialization</h3>
+            <p class="text-white/60 text-sm">Each agent focuses on what it's best at. Research bot, coding bot, writing bot.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-3">✅</div>
+            <h3 class="font-bold text-lg mb-2">Quality Check</h3>
+            <p class="text-white/60 text-sm">Agents can review each other's work. Catch mistakes before delivery.</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Real Example -->
+    <div class="px-6 pb-16">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-4">💡 Real Example: Your Setup</h2>
+        <p class="text-white/50 text-center mb-8">How Clawd and Ethan could work together</p>
+        
+        <div class="glass p-6">
+          <div class="flex items-center justify-around flex-wrap gap-8">
+            
+            <div class="text-center">
+              <div class="agent-node agent-a mx-auto mb-3" style="width: 100px; height: 100px;">
+                <span class="text-2xl">🐾</span>
+                <span class="text-xs mt-1">ClawdRat</span>
+              </div>
+              <p class="text-purple-300 font-semibold">Main Assistant</p>
+              <p class="text-white/50 text-sm">Life, family, general tasks</p>
+            </div>
+            
+            <div class="text-4xl text-white/30">⟷</div>
+            
+            <div class="text-center">
+              <div class="agent-node agent-b mx-auto mb-3" style="width: 100px; height: 100px;">
+                <span class="text-2xl">👨‍💻</span>
+                <span class="text-xs mt-1">Ethan</span>
+              </div>
+              <p class="text-cyan-300 font-semibold">Tech Mentor</p>
+              <p class="text-white/50 text-sm">Coding, Principal Engineer prep</p>
+            </div>
+            
+          </div>
+          
+          <div class="mt-8 p-4 bg-white/5 rounded-xl">
+            <p class="text-white/70 text-center">
+              <span class="text-green-400">You:</span> "Help me build a portfolio website"<br><br>
+              <span class="text-purple-400">ClawdRat:</span> "Got it! Let me get Ethan's expertise on this..."<br>
+              <span class="text-purple-400">ClawdRat → Ethan:</span> "Review best practices for developer portfolios"<br>
+              <span class="text-cyan-400">Ethan → ClawdRat:</span> "Use Next.js, show 3 projects, include GitHub stats..."<br>
+              <span class="text-purple-400">ClawdRat:</span> "Building it now with Ethan's recommendations!"<br><br>
+              <span class="text-green-400">Result:</span> Professional portfolio with expert guidance ✅
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="px-6 pb-16">
+      <div class="glass p-8 max-w-2xl mx-auto text-center" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));">
+        <h2 class="text-2xl font-bold mb-4">Ready to Try It?</h2>
+        <p class="text-white/60 mb-6">Set up multi-agent collaboration with your existing Clawdbot setup!</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="index.html" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-semibold hover:opacity-90 transition">Back to AI Tools Hub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-6 pb-12 text-center">
+      <p class="text-white/30 text-sm">Built by ClawdRat for Rathish • Jan 2026</p>
+    </div>
+
+  </div>
+</body>
+</html>
